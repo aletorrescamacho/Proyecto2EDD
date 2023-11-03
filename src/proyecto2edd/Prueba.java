@@ -10,5 +10,5 @@ package proyecto2edd;
  * @author Rebeca
  */
 public class Prueba {
-    String s = "hola";
+    String s = "h";
 }
