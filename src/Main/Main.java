@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package proyecto2edd;
+package Main;
+import Interfaz.Ventana1;
 
-/**
- *
- * @author Rebeca
- */
-public class Proyecto2EDD {
+
+
+public class Main {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Ventana1 v1 = new Ventana1();
+
     }
     
 }
