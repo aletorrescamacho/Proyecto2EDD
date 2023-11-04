@@ -20,6 +20,7 @@ public class Usuarios {
     public Usuarios(String Nombreusu, String Tipo) {
         this.Nombreusu = Nombreusu;
         this.Tipo = Tipo;
+        this.Listadocs = new Lista ();
     }
     
     
@@ -56,9 +57,9 @@ public class Usuarios {
         return Listadocs;
     }
 
-    public void setListadocs(Lista<Documentos> Listadocs) {
-        this.Listadocs = Listadocs;
-    }
+//    public void setListadocs(Lista<Documentos> Listadocs) {
+//        this.Listadocs = Listadocs;
+//    }
     
     
 }
