@@ -7,6 +7,7 @@ package Interfaz;
 
 import EDD.Lista;
 import Usuarios.Usuarios;
+import static Archivo.Operaciones.Cargararchivo;
 
 /**
 *Ventana 1 mustra la opción de salir del programa y de cargar el archivo
@@ -24,8 +25,9 @@ public class Ventana1 extends javax.swing.JFrame {
         this.setVisible(true);
         this.setLocationRelativeTo(null);
     }
-
     
+    public static Lista<Usuarios> listausu;
+
     
 
     /**
@@ -133,7 +135,7 @@ public class Ventana1 extends javax.swing.JFrame {
 *@version: 03/11/23
  */
     private void btcargararchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btcargararchActionPerformed
-        Lista<Usuarios> listausu = Archivo.Operaciones.Cargararchivo(this);
+        listausu = Cargararchivo(this);
         //this.dispose();
     }//GEN-LAST:event_btcargararchActionPerformed
 
