@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package Interfaz;
+import static Interfaz.Ventana1.listausu;
+import static Usuarios.Operacioneslistausu.Mostrarusu;
 
 /**
 *Ventana 3 ventana pprincipal donde se ejecutan las operaciones
@@ -84,6 +86,11 @@ public class Ventana3 extends javax.swing.JFrame {
         });
 
         btmostrarusu.setText("Mostrar Usuarios");
+        btmostrarusu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btmostrarusuActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pestanausuLayout = new javax.swing.GroupLayout(pestanausu);
         pestanausu.setLayout(pestanausuLayout);
@@ -285,6 +292,10 @@ public class Ventana3 extends javax.swing.JFrame {
     private void bteliminardocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bteliminardocActionPerformed
 
     }//GEN-LAST:event_bteliminardocActionPerformed
+
+    private void btmostrarusuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmostrarusuActionPerformed
+        Mostrarusu(listausu, tamostrarUsu);
+    }//GEN-LAST:event_btmostrarusuActionPerformed
 
     /**
      * @param args the command line arguments
