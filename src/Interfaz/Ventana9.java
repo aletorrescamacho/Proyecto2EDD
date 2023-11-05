@@ -110,6 +110,10 @@ public class Ventana9 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnoActionPerformed
 
     private void btsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btsiActionPerformed
+       // if (listausu.getTamano() ){}
+        
+        
+        
         Eliminarusu(listausu, Usuarioselec);
         this.dispose();
         
