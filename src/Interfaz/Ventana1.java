@@ -9,6 +9,7 @@ import EDD.Lista;
 import Usuarios.Usuarios;
 import static Archivo.Operaciones.Cargararchivo;
 
+
 /**
 *Ventana 1 mustra la opción de salir del programa y de cargar el archivo
 *@author: Alessandra Torres
@@ -136,7 +137,8 @@ public class Ventana1 extends javax.swing.JFrame {
  */
     private void btcargararchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btcargararchActionPerformed
         listausu = Cargararchivo(this);
-        //this.dispose();
+
+
     }//GEN-LAST:event_btcargararchActionPerformed
 
     /**

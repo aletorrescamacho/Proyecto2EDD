@@ -112,6 +112,11 @@ public class Ventana3 extends javax.swing.JFrame {
         pestanadocs.setBackground(new java.awt.Color(175, 196, 216));
 
         btcreardoc.setText("Crear Documento");
+        btcreardoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btcreardocActionPerformed(evt);
+            }
+        });
 
         bteliminardoc.setText("Eliminar Documento");
 
@@ -240,6 +245,11 @@ public class Ventana3 extends javax.swing.JFrame {
     private void btsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btsalirActionPerformed
         Ventana4 v4 = new Ventana4();
     }//GEN-LAST:event_btsalirActionPerformed
+
+    private void btcreardocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btcreardocActionPerformed
+        // TODO add your handling code here:
+        Ventana5 v5 = new Ventana5();
+    }//GEN-LAST:event_btcreardocActionPerformed
 
     /**
      * @param args the command line arguments
