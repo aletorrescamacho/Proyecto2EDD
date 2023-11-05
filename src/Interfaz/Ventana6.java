@@ -4,13 +4,16 @@
  * and open the template in the editor.
  */
 package Interfaz;
+import EDD.Nodo;
 import static Interfaz.Ventana1.listausu;
 import static Usuarios.Operacioneslistausu.Agregarusu;
+import Usuarios.Usuarios;
 
 /**
- *
- * @author Rebeca
- */
+*Ventana crear usuario, ingresa el nombre del usuario y el tipo para crear el mismo
+*@author: Alessandra Torres
+*@version: 05/11/23
+*/
 public class Ventana6 extends javax.swing.JFrame {
 
     /**
@@ -160,7 +163,11 @@ public class Ventana6 extends javax.swing.JFrame {
     private void tfnombreusuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfnombreusuActionPerformed
 
     }//GEN-LAST:event_tfnombreusuActionPerformed
-
+    /**
+    *Validación de usuario sin nombre, agregar el usuario nuevo a la lista, validar que el nombre de usuario no tenga espacios en blanco y que no este regristrado previamente
+    *@author: Alessandra Torres
+    *@version: 05/11/23
+    */
     private void btcrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btcrearActionPerformed
         if (tfnombreusu.getText().replaceAll(" ","").contentEquals("")){
             Ventana7 v7 = new Ventana7(); 
@@ -169,9 +176,25 @@ public class Ventana6 extends javax.swing.JFrame {
         {
         String nombreusu = tfnombreusu.getText();
         nombreusu = nombreusu.replaceAll(" ", "");
+        boolean existe = false;
+        Nodo <Usuarios> aux = listausu.getpFirst();
+        while ((aux != null) && (existe == false)){
+            if (aux.getElem().getNombreusu().equalsIgnoreCase(nombreusu)){
+                existe = true;
+            }
+            else{
+                aux = aux.getSig();
+            }
+        }
+        if (existe == true){
+         Ventana14 v14 = new Ventana14();
+        }
+        else{
+        
         String tipo = (String) cbtipousu.getSelectedItem();
         Agregarusu(listausu, nombreusu, tipo);
         this.dispose();
+        }
         }
     }//GEN-LAST:event_btcrearActionPerformed
 

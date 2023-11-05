@@ -11,11 +11,13 @@ public class Documentos {
     private String nombredoc;
     private String tipo;
     private int tamano;
+    private boolean enCola;
 
     public Documentos(String nombredoc, String tipo, int tamano) {
         this.nombredoc = nombredoc;
         this.tipo = tipo;
         this.tamano = tamano;
+        this.enCola = false;
     }
     
 
@@ -60,4 +62,20 @@ public class Documentos {
     public void setTamano(int tamano) {
         this.tamano = tamano;
     }
+
+    /**
+     * @return the encola
+     */
+    public boolean isEncola() {
+        return enCola;
+    }
+
+    /**
+     * @param encola the encola to set
+     */
+    public void setEncola(boolean encola) {
+        this.enCola = encola;
+    }
+    
+    
 }
