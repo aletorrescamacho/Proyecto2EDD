@@ -70,8 +70,18 @@ public class Ventana3 extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextArea1);
 
         btcrearusu.setText("Crear Usuario");
+        btcrearusu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btcrearusuActionPerformed(evt);
+            }
+        });
 
         bteliminarusu.setText("Eliminar Usuario");
+        bteliminarusu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bteliminarusuActionPerformed(evt);
+            }
+        });
 
         btmostrarusu.setText("Mostrar Usuarios");
 
@@ -250,6 +260,14 @@ public class Ventana3 extends javax.swing.JFrame {
         // TODO add your handling code here:
         Ventana5 v5 = new Ventana5();
     }//GEN-LAST:event_btcreardocActionPerformed
+
+    private void btcrearusuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btcrearusuActionPerformed
+        Ventana6 v6 = new Ventana6();
+    }//GEN-LAST:event_btcrearusuActionPerformed
+
+    private void bteliminarusuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bteliminarusuActionPerformed
+        Ventana8 v8 = new Ventana8();
+    }//GEN-LAST:event_bteliminarusuActionPerformed
 
     /**
      * @param args the command line arguments

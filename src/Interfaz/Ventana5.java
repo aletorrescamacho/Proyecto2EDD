@@ -67,6 +67,7 @@ public class Ventana5 extends javax.swing.JFrame {
         cantPags = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         btCrear = new javax.swing.JButton();
+        btCancelar = new javax.swing.JButton();
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -148,6 +149,13 @@ public class Ventana5 extends javax.swing.JFrame {
             }
         });
 
+        btCancelar.setText("Cancelar");
+        btCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -176,9 +184,11 @@ public class Ventana5 extends javax.swing.JFrame {
                                 .addComponent(cantPags))
                             .addComponent(nombreDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addComponent(btCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(127, Short.MAX_VALUE))
+                        .addGap(88, 88, 88)
+                        .addComponent(btCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47)
+                        .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(87, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,8 +214,10 @@ public class Ventana5 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cantPags, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -216,7 +228,7 @@ public class Ventana5 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -247,11 +259,15 @@ public class Ventana5 extends javax.swing.JFrame {
  */
     private void btCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCrearActionPerformed
        //Encuentra el usuario y su lista de documentos
-        
+         if (nombreDoc.getText().replaceAll(" ","").contentEquals("")){
+            Ventana7 v7 = new Ventana7(); 
+        }
+        else
+        {
         String Nombreusu = (String) cboUsuarios.getSelectedItem();
         
         Nodo <Usuarios> usuAux = listausu.getpFirst();       
-        while (usuAux.getElem().getNombreusu() != Nombreusu){
+        while (!usuAux.getElem().getNombreusu().equalsIgnoreCase(Nombreusu)){
             usuAux = usuAux.getSig();
         }
         
@@ -260,6 +276,8 @@ public class Ventana5 extends javax.swing.JFrame {
         //Nombre Documento:
         
         String docNombre = nombreDoc.getText();
+        docNombre = docNombre.replaceAll(" ", "");
+        //blank space
 
         
         //Tipo Doc
@@ -296,7 +314,11 @@ public class Ventana5 extends javax.swing.JFrame {
         
         this.dispose();
 
+
             }
+
+
+        }
 
    
     }//GEN-LAST:event_btCrearActionPerformed
@@ -304,6 +326,10 @@ public class Ventana5 extends javax.swing.JFrame {
     private void cboTiposDocsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboTiposDocsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cboTiposDocsActionPerformed
+
+    private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -341,6 +367,7 @@ public class Ventana5 extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btCancelar;
     private javax.swing.JButton btCrear;
     private javax.swing.JTextField cantPags;
     private javax.swing.JComboBox<String> cboTiposDocs;
