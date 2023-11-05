@@ -21,6 +21,7 @@ public class Operacioneslistausu {
         while (aux != null) {
             System.out.println(aux.getElem().getNombreusu());
             aux = aux.getSig();
+            System.out.println(listausu.getTamano());
         }
     }
 
@@ -45,10 +46,13 @@ public class Operacioneslistausu {
         actual.setSig(null);
         actual = null;
         Nodo <Usuarios> temp = listausu.getpFirst();
-
+        
+        listausu.setTamano(listausu.getTamano() -1);
+                
         while (temp != null){
             System.out.println(temp.getElem().getNombreusu());
             temp = temp.getSig();
+            System.out.println(listausu.getTamano());
         }    
 
             }

@@ -16,7 +16,7 @@ public class Lista <T> {
     
     private Nodo<T> pFirst;
     private Nodo<T> pLast;
-    private static int tamano;
+    private int tamano;
 
     public Lista() {
         pFirst = null;
@@ -55,14 +55,14 @@ public class Lista <T> {
     /**
      * @return the tamano
      */
-    public static int getTamano() {
+    public int getTamano() {
         return tamano;
     }
 
     /**
      * @param aTamano the tamano to set
      */
-    public static void setTamano(int aTamano) {
+    public void setTamano(int aTamano) {
         tamano = aTamano;
     }
     
