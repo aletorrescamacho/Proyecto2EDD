@@ -9,6 +9,7 @@ import EDD.Lista;
 import Usuarios.Usuarios;
 import Documentos.Documentos;
 import static java.lang.Integer.parseInt;
+import Interfaz.Ventana11;
 
 
 /**
@@ -83,6 +84,7 @@ public class Ventana5 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(50, 75, 149));
+        setUndecorated(true);
 
         jPanel2.setBackground(new java.awt.Color(50, 75, 149));
 
@@ -258,34 +260,44 @@ public class Ventana5 extends javax.swing.JFrame {
         //Nombre Documento:
         
         String docNombre = nombreDoc.getText();
-        //blank space
+
         
         //Tipo Doc
         String tipoDoc = (String) cboTiposDocs.getSelectedItem();
         
         //Cantidad pags
-//        int pags;
-//        try{
-           int pags = Integer.parseInt(cantPags.getText());
-//        }
-//        catch(NumberFormatException ex){
-//            //mensaje error y que vuelva a mostrar v5
-//        }
-// al meterlo en el constructor de documentos, si le hago un try catch no le gusta
-
-        Documentos nuevoDoc = new Documentos(docNombre,tipoDoc,pags);
-        
-        docsUsu.Agregarfinal(nuevoDoc);
-        
-        Nodo <Documentos> aux = docsUsu.getpFirst();
-        while (aux != null){
-            System.out.println(aux.getElem().getNombredoc());
-            System.out.println(aux.getElem().getTipo());
-            System.out.println(aux.getElem().getTamano());
-            aux = aux.getSig();
+        boolean boolAux = false;
+        String strPags = cantPags.getText();
+        int pags = 0;
+        try{
+           pags = Integer.parseInt(strPags);
+           if (pags <= 0){
+              Ventana11 v11 = new Ventana11(); 
+           }
+           else{
+               boolAux = true;
+           }
         }
+        catch(NumberFormatException ex){
+            Ventana11 v11 = new Ventana11();
+        }
+
+            if (boolAux == true){
+            Documentos nuevoDoc = new Documentos(docNombre,tipoDoc,pags);
+            docsUsu.Agregarfinal(nuevoDoc);
+            Nodo <Documentos> aux = docsUsu.getpFirst();
+            while (aux != null){
+                System.out.println(aux.getElem().getNombredoc());
+                System.out.println(aux.getElem().getTipo());
+                System.out.println(aux.getElem().getTamano());
+                aux = aux.getSig();
+            }
+
         
         this.dispose();
+
+            }
+
    
     }//GEN-LAST:event_btCrearActionPerformed
 

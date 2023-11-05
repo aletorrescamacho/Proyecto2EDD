@@ -15,6 +15,7 @@ import EDD.Nodo;
 import Interfaz.Ventana1;
 import Interfaz.Ventana3;
 import Usuarios.Usuarios;
+import Interfaz.Ventana10;
 /**
 *Operaciones relacionadas con el archivo csv
 *@author: Alessandra Torres
@@ -52,9 +53,15 @@ public class Operaciones {
                     listausu.Agregarfinal(u);
                 }
             }
+            //En caso de que el csv tenga la linea:usuario, tipo pero no contenga los usuarios ni sus respectivos tipos:
+            if (listausu.getpFirst() == null){
+                Ventana10 v10 = new Ventana10();
+                return listausu;
+            }
             v1.dispose();
             Ventana3 v3 = new Ventana3();
         } catch (Exception e) {
+            //En caso de que no se agarre un archivo csv o que el archivo no tenga la estructura requerida.
             Ventana2 v2 = new Ventana2();
         } finally {
             if (entrada != null) {
