@@ -5,6 +5,8 @@
  */
 package EDD;
 
+import Usuarios.Usuarios;
+
 /**
 *Clase lista, contiene los seters y getters, al igual que el metodo agregarfinal
 *@author: Alessandra Torres
@@ -81,4 +83,5 @@ public class Lista <T> {
         }
         tamano++;
     }
+     
 }
