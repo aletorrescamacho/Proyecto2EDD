@@ -129,6 +129,11 @@ public class Ventana3 extends javax.swing.JFrame {
         });
 
         bteliminardoc.setText("Eliminar Documento");
+        bteliminardoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bteliminardocActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pestanadocsLayout = new javax.swing.GroupLayout(pestanadocs);
         pestanadocs.setLayout(pestanadocsLayout);
@@ -268,6 +273,10 @@ public class Ventana3 extends javax.swing.JFrame {
     private void bteliminarusuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bteliminarusuActionPerformed
         Ventana8 v8 = new Ventana8();
     }//GEN-LAST:event_bteliminarusuActionPerformed
+
+    private void bteliminardocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bteliminardocActionPerformed
+
+    }//GEN-LAST:event_bteliminardocActionPerformed
 
     /**
      * @param args the command line arguments

@@ -258,12 +258,13 @@ public class Ventana5 extends javax.swing.JFrame {
 *@version: 05/11/23
  */
     private void btCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCrearActionPerformed
-       //Encuentra el usuario y su lista de documentos
+        //si esta vacio el textfield se dispara la ventana 7 y no se consigue la lista de documentos del usuario seleccionado en el combobox
          if (nombreDoc.getText().replaceAll(" ","").contentEquals("")){
             Ventana7 v7 = new Ventana7(); 
         }
         else
         {
+         //Encuentra el usuario y su lista de documentos
         String Nombreusu = (String) cboUsuarios.getSelectedItem();
         
         Nodo <Usuarios> usuAux = listausu.getpFirst();       
@@ -274,12 +275,9 @@ public class Ventana5 extends javax.swing.JFrame {
         Lista <Documentos> docsUsu = usuAux.getElem().getListadocs();
         
         //Nombre Documento:
-        
         String docNombre = nombreDoc.getText();
         docNombre = docNombre.replaceAll(" ", "");
-        //blank space
 
-        
         //Tipo Doc
         String tipoDoc = (String) cboTiposDocs.getSelectedItem();
         
@@ -311,7 +309,6 @@ public class Ventana5 extends javax.swing.JFrame {
                 aux = aux.getSig();
             }
 
-        
         this.dispose();
 
 

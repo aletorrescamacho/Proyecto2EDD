@@ -39,9 +39,11 @@ public class Operacioneslistausu {
             }
         }
         if (actual == listausu.getpFirst()){
-            listausu.setpFirst(actual);
+            listausu.setpFirst(actual.getSig());
         }
-        anterior.setSig(actual.getSig());
+        if (anterior != null){
+            anterior.setSig(actual.getSig());
+        }
         actual.setSig(null);
         actual = null;
         Nodo <Usuarios> temp = listausu.getpFirst();
