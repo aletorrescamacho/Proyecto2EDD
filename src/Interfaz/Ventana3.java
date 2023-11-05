@@ -36,7 +36,7 @@ public class Ventana3 extends javax.swing.JFrame {
         tp = new javax.swing.JTabbedPane();
         pestanausu = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        tamostrarUsu = new javax.swing.JTextArea();
         btcrearusu = new javax.swing.JButton();
         bteliminarusu = new javax.swing.JButton();
         btmostrarusu = new javax.swing.JButton();
@@ -65,9 +65,9 @@ public class Ventana3 extends javax.swing.JFrame {
 
         pestanausu.setBackground(new java.awt.Color(175, 196, 216));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        tamostrarUsu.setColumns(20);
+        tamostrarUsu.setRows(5);
+        jScrollPane1.setViewportView(tamostrarUsu);
 
         btcrearusu.setText("Crear Usuario");
         btcrearusu.addActionListener(new java.awt.event.ActionListener() {
@@ -265,11 +265,19 @@ public class Ventana3 extends javax.swing.JFrame {
         // TODO add your handling code here:
         Ventana5 v5 = new Ventana5();
     }//GEN-LAST:event_btcreardocActionPerformed
-
+    /**
+    *Abre la ventana 6, crear usuario
+    *@author: Alessandra Torres
+    *@version: 05/11/23
+    */
     private void btcrearusuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btcrearusuActionPerformed
         Ventana6 v6 = new Ventana6();
     }//GEN-LAST:event_btcrearusuActionPerformed
-
+    /**
+    *Abre la ventana 8, eliminar usuario
+    *@author: Alessandra Torres
+    *@version: 05/11/23
+    */
     private void bteliminarusuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bteliminarusuActionPerformed
         Ventana8 v8 = new Ventana8();
     }//GEN-LAST:event_bteliminarusuActionPerformed
@@ -328,9 +336,9 @@ public class Ventana3 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel pestanadocs;
     private javax.swing.JPanel pestanausu;
+    private javax.swing.JTextArea tamostrarUsu;
     private javax.swing.JTabbedPane tp;
     // End of variables declaration//GEN-END:variables
 }

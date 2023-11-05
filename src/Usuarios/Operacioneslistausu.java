@@ -5,15 +5,23 @@
  */
 package Usuarios;
 
+import Documentos.Documentos;
 import EDD.Lista;
 import EDD.Nodo;
+import java.awt.TextArea;
 
 /**
- *
- * @author Rebeca
+*Clase Operacioneslistausu
+*@author: Alessandra Torres
+*@version: 05/11/23
  */
 public class Operacioneslistausu {
-
+    
+    /**
+    *Metodo Agregarusu, toma el nombre de usuario dado en el textfield y el tipo seleccionado en el combobox y agrega el elemento de tipo usuario con ese dato a la lista
+    *@author: Alessandra Torres
+    *@version: 05/11/23
+     */
     public static void Agregarusu(Lista<Usuarios> listausu, String nombreusu, String tipo) {
         Usuarios Nuevousu = new Usuarios(nombreusu, tipo);
         listausu.Agregarfinal(Nuevousu);
@@ -25,6 +33,11 @@ public class Operacioneslistausu {
         }
     }
 
+    /**
+    *Método Eliminarsu, elimina al usuario de la lista, el mismo es seleccionado en un combobox
+    *@author: Alessandra Torres
+    *@version: 05/11/23
+    */
     public static void Eliminarusu(Lista<Usuarios> listausu, String nombreusu) {
         boolean encontrado = false;
         Nodo<Usuarios> actual = listausu.getpFirst();
@@ -61,7 +74,24 @@ public class Operacioneslistausu {
 
             }
 
+        public static void Mostrarusu(Lista<Usuarios> listausu, TextArea tamostrarUsu) {
+            Nodo <Usuarios> aux1 = listausu.getpFirst();
+            tamostrarUsu.setText("");
+            while (aux1 != null){
+                tamostrarUsu.append("Usuario: ");
+                tamostrarUsu.append(aux1.getElem().getNombreusu());
+                Nodo <Documentos> aux2 = aux1.getElem().getListadocs().getpFirst();
+                tamostrarUsu.append("Documentos: ");
+                //tamostrarUsu.
+                //while ()
+                
+                
+            }
+        
         }
+        }
+
+
 
 
 

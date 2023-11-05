@@ -11,9 +11,10 @@ import static Interfaz.Ventana9.eliminado;
 import Usuarios.Usuarios;
 
 /**
- *
- * @author Rebeca
- */
+*Ventana eliminar usuario, ingresas los datos mediante combobox
+*@author: Alessandra Torres
+*@version: 05/11/23
+*/
 public class Ventana8 extends javax.swing.JFrame {
     public static String Usuarioselec;
     /**
@@ -141,7 +142,11 @@ public class Ventana8 extends javax.swing.JFrame {
     private void btcancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btcancelarActionPerformed
         this.dispose();
     }//GEN-LAST:event_btcancelarActionPerformed
-
+    /**
+    *Guarda en variable el usuario seleccionado y abre ventana 9 de confirmación
+    *@author: Alessandra Torres
+    *@version: 05/11/23
+    */
     private void bteliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bteliminarActionPerformed
         Usuarioselec = (String) cboUsuarios.getSelectedItem();
         Ventana9 v9 = new Ventana9();
