@@ -6,6 +6,7 @@
 package Interfaz;
 import static Interfaz.Ventana1.listausu;
 import static Usuarios.Operacioneslistausu.Mostrarusu;
+import Cronometro.Cronometro;
 
 /**
 *Ventana 3 ventana pprincipal donde se ejecutan las operaciones
@@ -13,7 +14,6 @@ import static Usuarios.Operacioneslistausu.Mostrarusu;
 *@version: 03/11/23
  */
 public class Ventana3 extends javax.swing.JFrame {
-
     /**
      * Creates new form Ventana3
      */
@@ -22,7 +22,11 @@ public class Ventana3 extends javax.swing.JFrame {
         this.pack();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
+        Cronometro c1 = new Cronometro(tiempo);
+        c1.start();
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -51,6 +55,7 @@ public class Ventana3 extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         btvistasecuencia = new javax.swing.JButton();
         btvistaarbol = new javax.swing.JButton();
+        tiempo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -223,25 +228,33 @@ public class Ventana3 extends javax.swing.JFrame {
 
         tp.addTab("Gráficos", jPanel2);
 
+        tiempo.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        tiempo.setForeground(new java.awt.Color(255, 255, 255));
+        tiempo.setText("00:00:00");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(tiempo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(tp, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
-                .addComponent(btsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap(19, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btsalir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tiempo, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(18, 18, 18)
                 .addComponent(tp, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -254,7 +267,9 @@ public class Ventana3 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -266,6 +281,7 @@ public class Ventana3 extends javax.swing.JFrame {
  */
     private void btsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btsalirActionPerformed
         Ventana4 v4 = new Ventana4();
+        System.out.println(tiempo.getText());
     }//GEN-LAST:event_btsalirActionPerformed
 
     private void btcreardocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btcreardocActionPerformed
@@ -350,6 +366,7 @@ public class Ventana3 extends javax.swing.JFrame {
     private javax.swing.JPanel pestanadocs;
     private javax.swing.JPanel pestanausu;
     private javax.swing.JTextArea tamostrarUsu;
+    private javax.swing.JLabel tiempo;
     private javax.swing.JTabbedPane tp;
     // End of variables declaration//GEN-END:variables
 }
