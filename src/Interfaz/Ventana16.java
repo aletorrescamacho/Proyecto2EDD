@@ -3,38 +3,50 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interfaz;
-
 import Documentos.Documentos;
 import EDD.Lista;
 import EDD.Nodo;
 import static Interfaz.Ventana1.listausu;
+import static Interfaz.Ventana13.nombreUsu;
 import Usuarios.Usuarios;
 
-
 /**
-*Ventana 13 combobox usuario del doc a eliminar
+*Mostrar documentos del usuario y seleccionar el que se vaya a eliminar
 *@author: Luis Soriano
 *@version: 05/11/23
  */
-
-public class Ventana13 extends javax.swing.JFrame {
-
-    public static String nombreUsu;
- 
-    
-    public Ventana13() {
+public class Ventana16 extends javax.swing.JFrame {
+        public static String nombreDoc;
+         public static Lista <Documentos> docsUsu;
+    /**
+     * Creates new form Ventana16
+     */
+    public Ventana16() {
         initComponents();
         this.pack();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
-
-        //anadimos todos lo usuarios al combobox de usuarios
-        Nodo <Usuarios> usuAux = listausu.getpFirst();       
-        while (usuAux != null){
-            cboUsuarios.addItem(usuAux.getElem().getNombreusu());
-            usuAux = usuAux.getSig();
+        
+                  //buscamos el usuario en nuestra lista de usuarios para encontrar posteriormente su lista de documentos
+         Nodo <Usuarios> usuAux1 = listausu.getpFirst();       
+        while (!usuAux1.getElem().getNombreusu().equalsIgnoreCase(nombreUsu)){
+            usuAux1 = usuAux1.getSig();
         }
-  
+        docsUsu = usuAux1.getElem().getListadocs();
+
+        //anadimos todos los documentos en la lista de documentos del usuario al segundo combobox despues de seleccionar el usuario en el primer combobox
+        Nodo <Documentos> usuDoc = docsUsu.getpFirst();
+        
+        //Revisamos que la lista de documentos no este vacia
+        if (usuDoc== null){
+            Ventana17 v17 =new Ventana17();
+            this.dispose();
+        }
+        
+        while (usuDoc != null){
+            cboDocsUsu.addItem(usuDoc.getElem().getNombredoc());
+            usuDoc = usuDoc.getSig();
+        }
     }
 
     /**
@@ -49,8 +61,8 @@ public class Ventana13 extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        cboUsuarios = new javax.swing.JComboBox<>();
-        btSiguiente = new javax.swing.JButton();
+        cboDocsUsu = new javax.swing.JComboBox<>();
+        btEliminarDoc = new javax.swing.JButton();
         btCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -64,23 +76,23 @@ public class Ventana13 extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Seleccione usuario");
+        jLabel7.setText("Seleccione documento");
 
-        cboUsuarios.addItemListener(new java.awt.event.ItemListener() {
+        cboDocsUsu.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cboUsuariosItemStateChanged(evt);
+                cboDocsUsuItemStateChanged(evt);
             }
         });
-        cboUsuarios.addActionListener(new java.awt.event.ActionListener() {
+        cboDocsUsu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cboUsuariosActionPerformed(evt);
+                cboDocsUsuActionPerformed(evt);
             }
         });
 
-        btSiguiente.setText("Siguiente");
-        btSiguiente.addActionListener(new java.awt.event.ActionListener() {
+        btEliminarDoc.setText("Eliminar");
+        btEliminarDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btSiguienteActionPerformed(evt);
+                btEliminarDocActionPerformed(evt);
             }
         });
 
@@ -95,21 +107,21 @@ public class Ventana13 extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(142, 142, 142)
-                .addComponent(jLabel7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(93, 93, 93)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cboUsuarios, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cboDocsUsu, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btEliminarDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(90, 90, 90))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(128, 128, 128)
+                .addComponent(jLabel7)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,13 +130,13 @@ public class Ventana13 extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
-                .addGap(18, 18, 18)
-                .addComponent(cboUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cboDocsUsu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btEliminarDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -135,33 +147,33 @@ public class Ventana13 extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void cboDocsUsuItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboDocsUsuItemStateChanged
 
-    private void cboUsuariosItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboUsuariosItemStateChanged
-  
-    }//GEN-LAST:event_cboUsuariosItemStateChanged
+    }//GEN-LAST:event_cboDocsUsuItemStateChanged
 
-    private void cboUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboUsuariosActionPerformed
+    private void cboDocsUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboDocsUsuActionPerformed
 
-    }//GEN-LAST:event_cboUsuariosActionPerformed
-/**
-*Boton siguiente que lleva a la ventana donde se muestran los documentos del usuario y se elimina 
+    }//GEN-LAST:event_cboDocsUsuActionPerformed
+
+    /**
+*Boton eliminar que lleva a ventana de confrimacion
 *@author: Luis Soriano
 *@version: 05/11/23
  */
-    private void btSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSiguienteActionPerformed
-            //usuario seleccionado del primer combobox
-            nombreUsu = (String) cboUsuarios.getSelectedItem();
-            
-            Ventana16 v16 = new Ventana16();
-            
-            this.dispose();
-    }//GEN-LAST:event_btSiguienteActionPerformed
+    private void btEliminarDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEliminarDocActionPerformed
+        //documento seleccionado
+        nombreDoc = (String) cboDocsUsu.getSelectedItem();
+
+        Ventana15 v15 = new Ventana15();
+
+        this.dispose();
+    }//GEN-LAST:event_btEliminarDocActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
         this.dispose();
@@ -184,28 +196,28 @@ public class Ventana13 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ventana13.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana16.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ventana13.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana16.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ventana13.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana16.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ventana13.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana16.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ventana13().setVisible(true);
+                new Ventana16().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCancelar;
-    private javax.swing.JButton btSiguiente;
-    private javax.swing.JComboBox<String> cboUsuarios;
+    private javax.swing.JButton btEliminarDoc;
+    private javax.swing.JComboBox<String> cboDocsUsu;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;

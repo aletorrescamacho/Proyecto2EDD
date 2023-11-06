@@ -283,7 +283,7 @@ public class Ventana3 extends javax.swing.JFrame {
     }//GEN-LAST:event_bteliminarusuActionPerformed
 
     private void bteliminardocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bteliminardocActionPerformed
-
+        Ventana13 v13 = new Ventana13();
     }//GEN-LAST:event_bteliminardocActionPerformed
 
     /**
