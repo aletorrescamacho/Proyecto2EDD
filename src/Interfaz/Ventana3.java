@@ -7,16 +7,23 @@ package Interfaz;
 import static Interfaz.Ventana1.listausu;
 import static Usuarios.Operacioneslistausu.Mostrarusu;
 import Cronometro.Cronometro;
+import static Interfaz.Ventana5.nuevoDoc;
+import static Interfaz.Ventana15.docElim;
+
 
 /**
-*Ventana 3 ventana pprincipal donde se ejecutan las operaciones
+*Ventana 3 ventana principal donde se ejecutan las operaciones
 *@author: Alessandra Torres
 *@version: 03/11/23
  */
 public class Ventana3 extends javax.swing.JFrame {
+
+    
+  
     /**
      * Creates new form Ventana3
      */
+
     public Ventana3() {
         initComponents();
         this.pack();
@@ -50,6 +57,9 @@ public class Ventana3 extends javax.swing.JFrame {
         pestanadocs = new javax.swing.JPanel();
         btcreardoc = new javax.swing.JButton();
         bteliminardoc = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tamostrarDocs = new javax.swing.JTextArea();
+        mostrarDoc = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         btliberarimp = new javax.swing.JButton();
         bteliminardoccola = new javax.swing.JButton();
@@ -153,25 +163,41 @@ public class Ventana3 extends javax.swing.JFrame {
             }
         });
 
+        tamostrarDocs.setColumns(20);
+        tamostrarDocs.setRows(5);
+        jScrollPane2.setViewportView(tamostrarDocs);
+
+        mostrarDoc.setText("Mostrar Últim. Doc. Creado/Elim.");
+        mostrarDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarDocActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pestanadocsLayout = new javax.swing.GroupLayout(pestanadocs);
         pestanadocs.setLayout(pestanadocsLayout);
         pestanadocsLayout.setHorizontalGroup(
             pestanadocsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pestanadocsLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(pestanadocsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bteliminardoc, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btcreardoc, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(324, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(pestanadocsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btcreardoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(mostrarDoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bteliminardoc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE))
         );
         pestanadocsLayout.setVerticalGroup(
             pestanadocsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pestanadocsLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(btcreardoc)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bteliminardoc)
-                .addContainerGap(321, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(mostrarDoc)
+                .addContainerGap(292, Short.MAX_VALUE))
+            .addComponent(jScrollPane2)
         );
 
         tp.addTab("Documentos", pestanadocs);
@@ -248,10 +274,10 @@ public class Ventana3 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(tp, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,7 +286,7 @@ public class Ventana3 extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btsalir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tiempo, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(18, 18, 18)
+                .addGap(63, 63, 63)
                 .addComponent(tp, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -293,6 +319,11 @@ public class Ventana3 extends javax.swing.JFrame {
     private void btcreardocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btcreardocActionPerformed
         // TODO add your handling code here:
         Ventana5 v5 = new Ventana5();
+//        if (aux1==true){
+//            tamostrarDocs.setText("");
+//            tamostrarUsu.append("Nuevo Documento Creado: \n");
+//            tamostrarUsu.append("Nombre "+nuevoDoc.getNombredoc());
+//        }
     }//GEN-LAST:event_btcreardocActionPerformed
     /**
     *Abre la ventana 6, crear usuario
@@ -318,6 +349,27 @@ public class Ventana3 extends javax.swing.JFrame {
     private void btmostrarusuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmostrarusuActionPerformed
         Mostrarusu(listausu, tamostrarUsu);
     }//GEN-LAST:event_btmostrarusuActionPerformed
+
+    private void mostrarDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarDocActionPerformed
+                tamostrarDocs.setText("");
+                if (nuevoDoc != null){
+                    tamostrarDocs.append("Último Documento Creado: \n" );
+                    tamostrarDocs.append("Nombre: "+nuevoDoc.getNombredoc()+"\n");
+                }
+                else{
+                    tamostrarDocs.append("No se ha creado ningún documento." );
+                }
+                if (docElim != null){
+                    tamostrarDocs.append("\n");
+                    tamostrarDocs.append("Último Documento Eliminado: \n");
+                    tamostrarDocs.append("Nombre: "+docElim.getElem().getNombredoc()+"\n");
+                }
+                
+                else{
+                    tamostrarDocs.append("\n");
+                    tamostrarDocs.append("No se ha eliminado ningún documento." );
+                }
+    }//GEN-LAST:event_mostrarDocActionPerformed
 
     /**
      * @param args the command line arguments
@@ -370,8 +422,11 @@ public class Ventana3 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton mostrarDoc;
     private javax.swing.JPanel pestanadocs;
     private javax.swing.JPanel pestanausu;
+    private javax.swing.JTextArea tamostrarDocs;
     private javax.swing.JTextArea tamostrarUsu;
     private javax.swing.JLabel tiempo;
     private javax.swing.JTabbedPane tp;

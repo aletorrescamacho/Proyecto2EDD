@@ -16,7 +16,7 @@ import static Interfaz.Ventana16.docsUsu;
 *@version: 05/11/23
  */
 public class Ventana15 extends javax.swing.JFrame {
-
+    public static Nodo <Documentos> docElim;
     /**
      * Creates new form Ventana15
      */
@@ -120,8 +120,10 @@ public class Ventana15 extends javax.swing.JFrame {
                 docAux = docAux.getSig();
             }
             
+            docElim = docAux;
+            
 // eliminamos el documento con metodo eliminarDoc de Operacioneslistadocs
-                eliminarDoc(docsUsu,docAux.getElem().getNombredoc(),docAux.getElem().getTipo(),docAux.getElem().getTamano());
+                eliminarDoc(docsUsu,docElim.getElem().getNombredoc(),docElim.getElem().getTipo(),docElim.getElem().getTamano());
                 
                 
                 this.dispose();
