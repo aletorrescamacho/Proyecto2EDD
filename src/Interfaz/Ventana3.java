@@ -46,6 +46,7 @@ public class Ventana3 extends javax.swing.JFrame {
         btcrearusu = new javax.swing.JButton();
         bteliminarusu = new javax.swing.JButton();
         btmostrarusu = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         pestanadocs = new javax.swing.JPanel();
         btcreardoc = new javax.swing.JButton();
         bteliminardoc = new javax.swing.JButton();
@@ -97,22 +98,30 @@ public class Ventana3 extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 9)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("(Pulsar después de cada operación)");
+
         javax.swing.GroupLayout pestanausuLayout = new javax.swing.GroupLayout(pestanausu);
         pestanausu.setLayout(pestanausuLayout);
         pestanausuLayout.setHorizontalGroup(
             pestanausuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pestanausuLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(pestanausuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pestanausuLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(pestanausuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bteliminarusu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btmostrarusu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18))
-                    .addGroup(pestanausuLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(btcrearusu, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(0, 6, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pestanausuLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(pestanausuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pestanausuLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel1))
+                            .addGroup(pestanausuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(bteliminarusu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btmostrarusu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1))
         );
@@ -125,7 +134,9 @@ public class Ventana3 extends javax.swing.JFrame {
                 .addComponent(bteliminarusu)
                 .addGap(18, 18, 18)
                 .addComponent(btmostrarusu)
-                .addContainerGap(288, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addContainerGap(269, Short.MAX_VALUE))
             .addComponent(jScrollPane1)
         );
 
@@ -359,6 +370,7 @@ public class Ventana3 extends javax.swing.JFrame {
     private javax.swing.JButton btsalir;
     private javax.swing.JButton btvistaarbol;
     private javax.swing.JButton btvistasecuencia;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
