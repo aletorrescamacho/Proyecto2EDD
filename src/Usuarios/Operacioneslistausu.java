@@ -8,7 +8,7 @@ package Usuarios;
 import Documentos.Documentos;
 import EDD.Lista;
 import EDD.Nodo;
-import java.awt.TextArea;
+import javax.swing.JTextArea;
 
 /**
 *Clase Operacioneslistausu
@@ -74,18 +74,35 @@ public class Operacioneslistausu {
 
             }
 
-        public static void Mostrarusu(Lista<Usuarios> listausu, TextArea tamostrarUsu) {
+        public static void Mostrarusu(Lista<Usuarios> listausu, JTextArea tamostrarUsu) {
             Nodo <Usuarios> aux1 = listausu.getpFirst();
             tamostrarUsu.setText("");
             while (aux1 != null){
-                tamostrarUsu.append("Usuario: ");
-                tamostrarUsu.append(aux1.getElem().getNombreusu());
+                tamostrarUsu.append("Usuario: \n");
+                tamostrarUsu.append("   "+aux1.getElem().getNombreusu());
+
                 Nodo <Documentos> aux2 = aux1.getElem().getListadocs().getpFirst();
-                tamostrarUsu.append("Documentos: ");
-                //tamostrarUsu.
-                //while ()
+                tamostrarUsu.append("\nDocumentos: \n");
+                if (aux2 == null){
+                    tamostrarUsu.append("       Ninguno\n");
+                }else{
+                int contador = 1;
+                String enColasino;
+                while (aux2 != null){
+                    if (aux2.getElem().isEncola() == false){
+                        enColasino = "No";
+                    }
+                    else{
+                        enColasino = "Si";
+                    }
+                    tamostrarUsu.append("   "+contador+". Nombre: "+aux2.getElem().getNombredoc()+"\n");
+                    tamostrarUsu.append("       Tipo: "+aux2.getElem().getTipo()+"\n       Tamaño: "+aux2.getElem().getTamano()+" pag/s.\n       En cola de impresión: "+enColasino+"\n");
+                    aux2 = aux2.getSig();
+                    contador++;
+                }
+                }
                 
-                
+                aux1 = aux1.getSig();
             }
         
         }

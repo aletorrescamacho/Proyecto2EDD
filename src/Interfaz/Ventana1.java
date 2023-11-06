@@ -138,7 +138,6 @@ public class Ventana1 extends javax.swing.JFrame {
     private void btcargararchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btcargararchActionPerformed
         listausu = Cargararchivo(this);
 
-
     }//GEN-LAST:event_btcargararchActionPerformed
 
     /**
