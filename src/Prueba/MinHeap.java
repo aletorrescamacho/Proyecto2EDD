@@ -58,7 +58,7 @@ public class MinHeap {
 			return;
 		}
 		heapArray[heapSize] = e;
-                heapSize = heapSize + 1;
+                                            heapSize = heapSize + 1;
 		int curPos = heapSize - 1; 
 		int parPos = getParentIdx(curPos);
 		while (heapArray[parPos] > heapArray[curPos] && curPos > 0) {
@@ -155,17 +155,63 @@ public class MinHeap {
 	}
 	
 	public static void main(String[] args) {
-            MinHeap heap = new MinHeap(10); 
+                                            MinHeap heap = new MinHeap(10); 
+		System.out.println("Welcome to the rabbit hole of min heaps!\n");
+		System.out.println("[O(logN)] Inserting new elements...");
+                                            heap.insert(4);
+		heap.insert(5);
+		heap.insert(2);
+		heap.insert(8);
+		heap.insert(3);
 		heap.insert(7);
-//		heap.insert(6);
-//		heap.insert(52);
-//		heap.insert(34);
-
-                    
-
-                
-            heap.treePrint();
-            System.out.println("Printing Min Heap as array: " + heap.toString());
+		heap.insert(6);
+		
+		/**
+		 * After above insertion, the min heap should look like
+		 * 
+		 *           2
+		 *         /   \
+		 *        3     4
+		 *       / \   / \
+		 *      8   5 7   6 
+		 */
+		heap.treePrint();
+		System.out.println("Printing Min Heap as array: " + heap.toString());
+		System.out.println("[O(1)] Get min: " + heap.getMin());
+		System.out.println("[O(logN)] Extract min: " + heap.extractMin());
+		System.out.println("Printing Min Heap as array: " + heap.toString());
+		System.out.println("[O(logN)] Extract min: " + heap.extractMin());
+		System.out.println("Printing Min Heap as array: " + heap.toString());
+		System.out.println("[O(logN)] Inserting new elements...");
+		heap.insert(9);
+		heap.insert(1);
+		heap.insert(11);
+		heap.insert(15);
+		heap.insert(10);
+		System.out.println("Printing Min Heap as array: " + heap.toString());
+		int idx = 4;
+		System.out.println("[O(logN)] Delete element at index " + idx + "...");
+		heap.delete(idx);
+		System.out.println("Printing Min Heap as array: " + heap.toString());
+		idx = 1;
+		System.out.println("[O(logN)] Delete element at index " + idx + "...");
+		heap.delete(idx);
+		System.out.println("Printing Min Heap as array: " + heap.toString());
+		
+		System.out.println("[O(N)Initializing from a given array ...");
+		int[] init = {2, 7, 1, 9, 3, 2, 6, 8, 4, 0, 3, 5}; 
+		try {
+			
+			System.out.println("Initial array: " + Arrays.toString(init));
+			System.out.println("Is min heap? " + MinHeap.isMinHeap(init));
+			System.out.println("Initialized min heap in array format: " + heap.toString());
+			System.out.println("Is min heap? " + MinHeap.isMinHeap(Arrays.copyOfRange(heap.heapArray, 0, heap.heapSize)));
+			heap.treePrint();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("\nAll rabbits gone.");
+	}
+                            
 	}
 
-}
