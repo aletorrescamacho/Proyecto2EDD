@@ -12,6 +12,7 @@ import static Interfaz.Ventana5.nombreUsuAggDoc;
 import static Interfaz.Ventana15.nombreUsuElimDoc;
 import static Interfaz.Ventana15.docElim;
 import java.util.Calendar;
+import static Cronometro.Operacionescronometro.convertiraEtiquetat;
 
 
 /**
@@ -74,6 +75,7 @@ public class Ventana3 extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btliberarimp = new javax.swing.JButton();
         bteliminardoccola = new javax.swing.JButton();
+        btenviarColaimpr = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btvistasecuencia = new javax.swing.JButton();
         btvistaarbol = new javax.swing.JButton();
@@ -232,16 +234,24 @@ public class Ventana3 extends javax.swing.JFrame {
 
         bteliminardoccola.setText("Eliminar Doc en cola");
 
+        btenviarColaimpr.setText("Enviar Doc a cola de Impresión");
+        btenviarColaimpr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btenviarColaimprActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btliberarimp, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bteliminardoccola, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(319, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btliberarimp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btenviarColaimpr, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                    .addComponent(bteliminardoccola, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(283, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,8 +259,10 @@ public class Ventana3 extends javax.swing.JFrame {
                 .addGap(54, 54, 54)
                 .addComponent(btliberarimp)
                 .addGap(18, 18, 18)
+                .addComponent(btenviarColaimpr)
+                .addGap(24, 24, 24)
                 .addComponent(bteliminardoccola)
-                .addContainerGap(309, Short.MAX_VALUE))
+                .addContainerGap(262, Short.MAX_VALUE))
         );
 
         tp.addTab("Impresión", jPanel1);
@@ -417,6 +429,11 @@ public class Ventana3 extends javax.swing.JFrame {
                 }
     }//GEN-LAST:event_mostrarDocActionPerformed
 
+    private void btenviarColaimprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btenviarColaimprActionPerformed
+        int etiquetaTiempo = convertiraEtiquetat(tiempo, lbhorainicio);
+        
+    }//GEN-LAST:event_btenviarColaimprActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -458,6 +475,7 @@ public class Ventana3 extends javax.swing.JFrame {
     private javax.swing.JButton bteliminardoc;
     private javax.swing.JButton bteliminardoccola;
     private javax.swing.JButton bteliminarusu;
+    private javax.swing.JButton btenviarColaimpr;
     private javax.swing.JButton btliberarimp;
     private javax.swing.JButton btmostrarusu;
     private javax.swing.JButton btsalir;

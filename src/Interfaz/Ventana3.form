@@ -337,13 +337,14 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="30" pref="30" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btliberarimp" alignment="0" min="-2" pref="157" max="-2" attributes="0"/>
-                              <Component id="bteliminardoccola" min="-2" pref="157" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="btliberarimp" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btenviarColaimpr" alignment="0" pref="193" max="32767" attributes="0"/>
+                              <Component id="bteliminardoccola" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="319" max="32767" attributes="0"/>
+                          <EmptySpace pref="283" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -353,8 +354,10 @@
                           <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                           <Component id="btliberarimp" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btenviarColaimpr" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                           <Component id="bteliminardoccola" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="309" max="32767" attributes="0"/>
+                          <EmptySpace pref="262" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -369,6 +372,14 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Eliminar Doc en cola"/>
                   </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btenviarColaimpr">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Enviar Doc a cola de Impresi&#xf3;n"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btenviarColaimprActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
