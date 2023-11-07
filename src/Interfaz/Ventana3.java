@@ -9,7 +9,6 @@ import static Usuarios.Operacioneslistausu.Mostrarusu;
 import Cronometro.Cronometro;
 import static Interfaz.Ventana5.nuevoDoc;
 import static Interfaz.Ventana15.docElim;
-import Prueba.Stopwatch;
 import java.util.Calendar;
 
 
