@@ -20,6 +20,8 @@ import Documentos.Documentos;
 public class Ventana5 extends javax.swing.JFrame {
 
     public static Documentos nuevoDoc;
+    public static String Nombreusu;
+    public static String nombreUsuAggDoc;
     
     
     /**
@@ -261,59 +263,78 @@ public class Ventana5 extends javax.swing.JFrame {
 *@version: 05/11/23
  */
     private void btCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCrearActionPerformed
-        //si esta vacio el textfield se dispara la ventana 7 y no se consigue la lista de documentos del usuario seleccionado en el combobox
+       
+        
+
+//si esta vacio el textfield se dispara la ventana 7 y no se consigue la lista de documentos del usuario seleccionado en el combobox
          if (nombreDoc.getText().replaceAll(" ","").contentEquals("")){
             Ventana7 v7 = new Ventana7(); 
         }
-        else
-        {
-         //Encuentra el usuario y su lista de documentos
-        String Nombreusu = (String) cboUsuarios.getSelectedItem();
-        
-        Nodo <Usuarios> usuAux = listausu.getpFirst();       
-        while (!usuAux.getElem().getNombreusu().equalsIgnoreCase(Nombreusu)){
-            usuAux = usuAux.getSig();
-        }
-        
-        Lista <Documentos> docsUsu = usuAux.getElem().getListadocs();
-        
-        //Nombre Documento:
-        String docNombre = nombreDoc.getText();
-        docNombre = docNombre.replaceAll(" ", "");
 
-        //Tipo Doc
-        String tipoDoc = (String) cboTiposDocs.getSelectedItem();
-        
-        //Cantidad pags
-        boolean boolAux = false;
-        String strPags = cantPags.getText();
-        int pags = 0;
-        try{
-           pags = Integer.parseInt(strPags);
-           if (pags <= 0){
-              Ventana11 v11 = new Ventana11(); 
-           }
-           else{
-               boolAux = true;
-           }
-        }
-        catch(NumberFormatException ex){
-            Ventana11 v11 = new Ventana11();
-        }
+        else{
+             //Encuentra el usuario y su lista de documentos
+            Nombreusu = (String) cboUsuarios.getSelectedItem();
 
-            if (boolAux == true){
-            nuevoDoc = new Documentos(docNombre,tipoDoc,pags);
-            docsUsu.Agregarfinal(nuevoDoc);
-
-            
-
-        
-
-
-        this.dispose();
-
-
+            Nodo <Usuarios> usuAux = listausu.getpFirst();       
+            while (!usuAux.getElem().getNombreusu().equalsIgnoreCase(Nombreusu)){
+                usuAux = usuAux.getSig();
             }
+
+            Lista <Documentos> docsUsu = usuAux.getElem().getListadocs();
+
+
+            //Nombre Documento:
+            String docNombre = nombreDoc.getText();
+            docNombre = docNombre.replaceAll(" ", "");
+
+    //Para que un usuario no pueda tener dos documentos del mismo nombre:
+            boolean boolAux1 = true;
+            Nodo <Documentos> docAux = docsUsu.getpFirst();
+            while (docAux != null){
+                //si el texto agarrado del textfield (nombre del nuevo documento) es igual a el nombre de un documento de la lista de documentos de dicho usuario, se dispara ventana 20)
+                if (docAux.getElem().getNombredoc().equals(docNombre)){
+                    Ventana20 v20 = new Ventana20();
+                    boolAux1 = false;
+
+                }
+                docAux = docAux.getSig();
+            }
+
+            if ( boolAux1 == true){
+                //Tipo Doc
+                String tipoDoc = (String) cboTiposDocs.getSelectedItem();
+
+                //Cantidad pags
+                boolean boolAux = false;
+                String strPags = cantPags.getText();
+                int pags = 0;
+                try{
+                    pags = Integer.parseInt(strPags);
+                    if (pags <= 0){
+                        Ventana11 v11 = new Ventana11();
+                    }
+                    else{
+                        boolAux = true;
+                    }
+                }
+                catch(NumberFormatException ex){
+                    Ventana11 v11 = new Ventana11();
+                }
+
+                if (boolAux == true){
+                    nuevoDoc = new Documentos(docNombre,tipoDoc,pags);
+                    docsUsu.Agregarfinal(nuevoDoc);
+
+
+                    nombreUsuAggDoc = Nombreusu;
+
+
+
+                    this.dispose();
+                
+            }
+        }
+        
 
 
         }

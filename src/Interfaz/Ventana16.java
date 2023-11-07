@@ -18,6 +18,7 @@ import Usuarios.Usuarios;
 public class Ventana16 extends javax.swing.JFrame {
         public static String nombreDoc;
          public static Lista <Documentos> docsUsu;
+   
     /**
      * Creates new form Ventana16
      */
@@ -38,16 +39,48 @@ public class Ventana16 extends javax.swing.JFrame {
         Nodo <Documentos> usuDoc = docsUsu.getpFirst();
         
         //Revisamos que la lista de documentos no este vacia
+        
+        boolean boolaux1 = false;
+        
         if (usuDoc== null){
+            boolaux1 = true;
             Ventana17 v17 =new Ventana17();
             this.dispose();
         }
         
-        while (usuDoc != null){
-            cboDocsUsu.addItem(usuDoc.getElem().getNombredoc());
-            usuDoc = usuDoc.getSig();
+      
+            //Revisamos que la lista de documentos del usuario tenga por lo menos un documento que no este en la cola.
+  
+            while (usuDoc != null){
+                //si existe un documento que no esta en cola el aux booleano pasa a true y no se ejecuta el codigo de abajo:
+                if (!usuDoc.getElem().isEncola()){
+                    boolaux1 = true;
+                    break;
+                    }
+                usuDoc = usuDoc.getSig();
+            }
+
+            if (boolaux1 == false){
+                Ventana18 v18 = new Ventana18 ();
+                this.dispose();
+            }
+
+            ////////////////////////////////////////////////
+        
+            
+            while (usuDoc != null){
+                //si el documento esta en la cola de impresion no se agrega al combobox
+                if (!usuDoc.getElem().isEncola()){
+                    cboDocsUsu.addItem(usuDoc.getElem().getNombredoc());
+                    }
+                usuDoc = usuDoc.getSig();
+            }
+
+
+
         }
-    }
+
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -64,6 +97,7 @@ public class Ventana16 extends javax.swing.JFrame {
         cboDocsUsu = new javax.swing.JComboBox<>();
         btEliminarDoc = new javax.swing.JButton();
         btCancelar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -103,25 +137,39 @@ public class Ventana16 extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Sólo se mostrarán aquellos que no estén en la cola de impresión");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(93, 93, 93)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cboDocsUsu, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addComponent(cboDocsUsu, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btEliminarDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(33, 33, 33)
                         .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(8, 8, 8)))
                 .addGap(90, 90, 90))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(128, 128, 128)
-                .addComponent(jLabel7)
+                .addGap(105, 105, 105)
+                .addComponent(jLabel5)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(60, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(50, 50, 50))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(139, 139, 139))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,13 +178,15 @@ public class Ventana16 extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addComponent(cboDocsUsu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btEliminarDoc, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addGap(33, 33, 33))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -218,6 +268,7 @@ public class Ventana16 extends javax.swing.JFrame {
     private javax.swing.JButton btCancelar;
     private javax.swing.JButton btEliminarDoc;
     private javax.swing.JComboBox<String> cboDocsUsu;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;

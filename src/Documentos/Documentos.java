@@ -8,19 +8,36 @@ package Documentos;
 
 
 public class Documentos {
+
     private String nombredoc;
     private String tipo;
     private int tamano;
     private boolean enCola;
+    private float etTiempo;
 
     public Documentos(String nombredoc, String tipo, int tamano) {
         this.nombredoc = nombredoc;
         this.tipo = tipo;
         this.tamano = tamano;
         this.enCola = false;
+        this.etTiempo = -1;
     }
     
 
+        /**
+     * @return the etTiempo
+     */
+    public float getEtTiempo() {
+        return etTiempo;
+    }
+
+    /**
+     * @param etTiempo the etTiempo to set
+     */
+    public void setEtTiempo(float etTiempo) {
+        this.etTiempo = etTiempo;
+    }
+    
     /**
      * @return the nombredoc
      */
