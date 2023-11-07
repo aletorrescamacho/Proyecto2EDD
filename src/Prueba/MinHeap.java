@@ -156,11 +156,10 @@ public class MinHeap {
 	
 	public static void main(String[] args) {
             MinHeap heap = new MinHeap(10); 
-            		heap.insert(4);
 		heap.insert(7);
-		heap.insert(6);
-		heap.insert(52);
-		heap.insert(34);
+//		heap.insert(6);
+//		heap.insert(52);
+//		heap.insert(34);
 
                     
 
