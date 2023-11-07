@@ -14,30 +14,30 @@ import java.util.Arrays;
 
 public class MinHeap {
 	
-	protected int[] heapArray; // array storing heap elements
-	protected int capacity;    // maximum heap size
-	protected int heapSize;    // current heap size
+	protected int[] arrMonticulo; 
+	protected int capacidadMax;   
+	protected int tamMonticulo;    
 	
-	public MinHeap(int capacity) { // constructor
-		this.heapSize = 0; 
-		this.capacity = capacity; 
-		this.heapArray = new int[capacity];
+	public MinHeap(int capacidad) { 
+		this.tamMonticulo = 0; 
+		this.capacidadMax = capacidad; 
+		this.arrMonticulo = new int[capacidad];
 	}
 	
 	
-	protected static int getParentIdx(int idx) {
+	protected static int getIndPadre(int idx) {
 		return (idx-1)/2;
 	}
 	
-	protected static int getLeftIdx(int idx) {
+	protected static int getIndHijoIzq(int idx) {
 		return idx*2 + 1;
 	}
 	
-	protected static int getRightIdx(int idx) {
+	protected static int getIndHijoDer(int idx) {
 		return idx*2 + 2;
 	}
 	
-	protected void swap(int[] a, int p1, int p2) {
+	protected void intercambiar(int[] a, int p1, int p2) {
 		if (p1<0 || p1>a.length-1 || p2<0 || p2>a.length-1) return;
 		int temp = a[p1];
 		a[p1] = a[p2];
@@ -45,109 +45,92 @@ public class MinHeap {
 	}
 	
 	public String toString() {
-		return Arrays.toString(Arrays.copyOfRange(this.heapArray, 0, this.heapSize));
+		return Arrays.toString(Arrays.copyOfRange(this.arrMonticulo, 0, this.tamMonticulo));
 	}
         
-	/**
-	 * Insert a new element into the heap
-	 * --> append to the end as a leaf and repair the heap by "percolation up" if needed
-	 */
-	public void insert(int e) {
-		if (this.heapSize == this.capacity) {
-			System.out.println("\nHeap capacity reached! No more elements allowed.\n");
+
+	public void insertar(int e) {
+		if (this.tamMonticulo == this.capacidadMax) {
+			System.out.println("\nHeap capacidad reached! No more elements allowed.\n");
 			return;
 		}
-		heapArray[heapSize] = e;
-                heapSize = heapSize + 1;
-		int curPos = heapSize - 1; 
-		int parPos = getParentIdx(curPos);
-		while (heapArray[parPos] > heapArray[curPos] && curPos > 0) {
-			swap(heapArray, curPos, parPos);
+		arrMonticulo[tamMonticulo] = e;
+                tamMonticulo = tamMonticulo + 1;
+		int curPos = tamMonticulo - 1; 
+		int parPos = getIndPadre(curPos);
+		while (arrMonticulo[parPos] > arrMonticulo[curPos] && curPos > 0) {
+			intercambiar(arrMonticulo, curPos, parPos);
 			curPos = parPos;
-			parPos = getParentIdx(curPos);
+			parPos = getIndPadre(curPos);
 		}
 	}
 	
-	/**
-	 * Get minimum element
-	 */
+
 	public int getMin() {
-		return this.heapArray[0];
+		return this.arrMonticulo[0];
 	}
 	
-	/**
-	 * Extract minimum element
-	 * --> return the min element and remove it from the heap
-	 */
-	public int extractMin() {
+
+	public int eliminarMin() {
 		int min = getMin();
-		swap(this.heapArray, 0, heapSize-1);
-		this.heapSize--; 
-		if (0 < this.heapSize) minHeapify(0);
+		intercambiar(this.arrMonticulo, 0, tamMonticulo-1);
+		this.tamMonticulo--; 
+		if (0 < this.tamMonticulo) minHeapify(0);
 		return min;
 	}
 	
-	/**
-	 * Delete an element stored at given index
-	 */
-	public void delete(int idx) {
-		if (idx >= this.heapSize) {
-			System.out.println("\nNo element found or index out of heap capacity!\n");
+
+	public void eliminarporInd(int idx) {
+		if (idx >= this.tamMonticulo) {
+			System.out.println("\nNo element found or index out of heap capacidad!\n");
 			return;
 		}
-		swap(this.heapArray, idx, heapSize-1);
-		this.heapSize--;
-		if (idx < this.heapSize) minHeapify(idx);
+		intercambiar(this.arrMonticulo, idx, tamMonticulo-1);
+		this.tamMonticulo--;
+		if (idx < this.tamMonticulo) minHeapify(idx);
 	}
 	
-	/**
-	 * Print out a min heap in "heap" (complete tree) format
-	 */
-	public void treePrint() {
+
+	public void imprimirArbol() {
 		int levelSize = 1, cover = 0, level = 1;
-		int remain = this.heapSize;
+		int remain = this.tamMonticulo;
 		while (remain > 0) {
 			System.out.print("Level " + (level++) + ": "); 
 			int i = cover;
 			cover += Math.min(levelSize, remain);
-			for (; i<cover; i++) System.out.print(this.heapArray[i] + " ");
+			for (; i<cover; i++) System.out.print(this.arrMonticulo[i] + " ");
 			System.out.println();
 			remain -= levelSize; 
 			levelSize <<= 1;
 		}
 	}
 	
-	/* Heapify procedure can be applied to a node only if its child nodes have been heapified. */
-	/* Hence orverall heapification on an array needs to be performed in bottom up manner. */
-	/**
-	 * Repair a heap with root at given index (assuming all sub-trees have been heapified)
-	 */
+
 	public void minHeapify(int idx) {
-		if (idx >= this.heapSize) {
-			System.out.println("\nNo element found or index out of heap capacity!\n");
+		if (idx >= this.tamMonticulo) {
+			System.out.println("\nNo element found or index out of heap capacidad!\n");
 			return;
 		}
 		int curPos = idx;
-		int leftPos = getLeftIdx(curPos), rightPos = getRightIdx(curPos);
+		int posIzq = getIndHijoIzq(curPos), posDer = getIndHijoDer(curPos);
 		while (true) {
-			if (leftPos < heapSize && heapArray[curPos] > heapArray[leftPos] && (rightPos >= heapSize || heapArray[rightPos] >= heapArray[leftPos])) {
-				swap(this.heapArray, curPos, leftPos);
-				curPos = leftPos;
-			} else if (rightPos < heapSize && heapArray[curPos] > heapArray[rightPos] && heapArray[leftPos] > heapArray[rightPos]) {
-				swap(this.heapArray, curPos, rightPos);
-				curPos = rightPos;
+			if (posIzq < tamMonticulo && arrMonticulo[curPos] > arrMonticulo[posIzq] && (posDer >= tamMonticulo || arrMonticulo[posDer] >= arrMonticulo[posIzq])) {
+				intercambiar(this.arrMonticulo, curPos, posIzq);
+				curPos = posIzq;
+			} else if (posDer < tamMonticulo && arrMonticulo[curPos] > arrMonticulo[posDer] && arrMonticulo[posIzq] > arrMonticulo[posDer]) {
+				intercambiar(this.arrMonticulo, curPos, posDer);
+				curPos = posDer;
 			} else break;
-			leftPos = getLeftIdx(curPos);
-			rightPos = getRightIdx(curPos);
+			posIzq = getIndHijoIzq(curPos);
+			posDer = getIndHijoDer(curPos);
 		}
 	}
 	
-	/**
-	 * Check if a given integer array is completely heapified. 
-	 */
+
+        
 	public static boolean isMinHeap(int[] a) {
-		for (int i=getParentIdx(a.length-1); i>=0; i--) { // start checking from last parent node
-			int l = getLeftIdx(i), r = getRightIdx(i);
+		for (int i=getIndPadre(a.length-1); i>=0; i--) {
+			int l = getIndHijoIzq(i), r = getIndHijoDer(i);
 			if (l < a.length && a[l] < a[i]) return false;
 			if (r < a.length && a[r] < a[i]) return false;
 		}
@@ -156,15 +139,15 @@ public class MinHeap {
 	
 	public static void main(String[] args) {
             MinHeap heap = new MinHeap(10); 
-		heap.insert(7);
-//		heap.insert(6);
-//		heap.insert(52);
-//		heap.insert(34);
+		heap.insertar(7);
+//		heap.insertar(6);
+//		heap.insertar(52);
+//		heap.insertar(34);
 
                     
 
                 
-            heap.treePrint();
+            heap.imprimirArbol();
             System.out.println("Printing Min Heap as array: " + heap.toString());
 	}
 
