@@ -80,17 +80,6 @@ public class MinHeap {
 	}
 	
 
-	public void eliminarporInd(int idx) {
-		if (idx >= this.tamMonticulo) {
-			System.out.println("\nNo element found or index out of heap capacidad!\n");
-			return;
-		}
-		intercambiar(this.arrMonticulo, idx, tamMonticulo-1);
-		this.tamMonticulo--;
-		if (idx < this.tamMonticulo) minHeapify(idx);
-	}
-	
-
 	public void imprimirArbol() {
 		int levelSize = 1, cover = 0, level = 1;
 		int remain = this.tamMonticulo;
@@ -127,16 +116,16 @@ public class MinHeap {
 	}
 	
 
-        
-	public static boolean isMinHeap(int[] a) {
-		for (int i=getIndPadre(a.length-1); i>=0; i--) {
-			int l = getIndHijoIzq(i), r = getIndHijoDer(i);
-			if (l < a.length && a[l] < a[i]) return false;
-			if (r < a.length && a[r] < a[i]) return false;
-		}
-		return true;
-	}
-	
+//        
+//	public static boolean isMinHeap(int[] a) {
+//		for (int i=getIndPadre(a.length-1); i>=0; i--) {
+//			int l = getIndHijoIzq(i), r = getIndHijoDer(i);
+//			if (l < a.length && a[l] < a[i]) return false;
+//			if (r < a.length && a[r] < a[i]) return false;
+//		}
+//		return true;
+//	}
+//	
 	public static void main(String[] args) {
             MinHeap heap = new MinHeap(10); 
 		heap.insertar(7);
