@@ -4,25 +4,16 @@
  */
 package Interfaz;
 
-import Documentos.Documentos;
-import static Documentos.Operacioneslistadocs.eliminarDoc;
-import EDD.Nodo;
-import static Interfaz.Ventana16.nombreDoc;
-import static Interfaz.Ventana16.docsUsu;
-import static Interfaz.Ventana13.nombreUsu;
-
 /**
-*Ventana que confirma que se desea borrar el documento del usuario seleccionado (y lo borra)
-*@author: Luis Soriano
-*@version: 05/11/23
+ *
+ * @author luiss
  */
-public class Ventana15 extends javax.swing.JFrame {
-    public static Nodo <Documentos> docElim;
-    public static String nombreUsuElimDoc;
+public class Ventana20 extends javax.swing.JFrame {
+
     /**
-     * Creates new form Ventana15
+     * Creates new form Ventana20
      */
-    public Ventana15() {
+    public Ventana20() {
         initComponents();
         this.pack();
         this.setVisible(true);
@@ -39,30 +30,27 @@ public class Ventana15 extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        btsi = new javax.swing.JButton();
-        btno = new javax.swing.JButton();
+        btok = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(123, 152, 181));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("ERROR");
+
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("¿Esta seguro que desea eliminar el documento?");
+        jLabel2.setText("El usuario ya posee un documento con este nombre.");
 
-        btsi.setText("Si");
-        btsi.addActionListener(new java.awt.event.ActionListener() {
+        btok.setText("OK");
+        btok.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btsiActionPerformed(evt);
-            }
-        });
-
-        btno.setText("No");
-        btno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnoActionPerformed(evt);
+                btokActionPerformed(evt);
             }
         });
 
@@ -71,26 +59,28 @@ public class Ventana15 extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel2)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(171, 171, 171)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(207, 207, 207)
+                        .addComponent(btok))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel2)))
                 .addContainerGap(23, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(btsi, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btno, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(29, 29, 29)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btsi)
-                    .addComponent(btno))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btok)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -107,36 +97,9 @@ public class Ventana15 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-*Boton que borra el archivo seleccionado de manera definitiva
-*@author: Luis Soriano
-*@version: 05/11/23
- */
-    private void btsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btsiActionPerformed
-         // buscamos en la lista de documentos del usuario seleccionado el documento seleccionado en la ventana anterior
-
-            
-//buscamos el documento a eliminar en la lista de documentos del usuario
-            Nodo <Documentos> docAux = docsUsu.getpFirst();
-            while (!docAux.getElem().getNombredoc().equalsIgnoreCase(nombreDoc)){
-                docAux = docAux.getSig();
-            }
-            
-            docElim = docAux;
-            
-// eliminamos el documento con metodo eliminarDoc de Operacioneslistadocs
-                eliminarDoc(docsUsu,docElim.getElem().getNombredoc(),docElim.getElem().getTipo(),docElim.getElem().getTamano());
-                
-                nombreUsuElimDoc = nombreUsu;
-                
-                
-                this.dispose();
-    }//GEN-LAST:event_btsiActionPerformed
-
-    private void btnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnoActionPerformed
-
+    private void btokActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btokActionPerformed
         this.dispose();
-    }//GEN-LAST:event_btnoActionPerformed
+    }//GEN-LAST:event_btokActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,27 +118,27 @@ public class Ventana15 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ventana15.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana20.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ventana15.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana20.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ventana15.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana20.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ventana15.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana20.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ventana15().setVisible(true);
+                new Ventana20().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btno;
-    private javax.swing.JButton btsi;
+    private javax.swing.JButton btok;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
