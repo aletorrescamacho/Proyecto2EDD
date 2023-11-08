@@ -10,6 +10,8 @@ import static Interfaz.Ventana1.listausu;
 import static Interfaz.Ventana21.userName;
 import Usuarios.Usuarios;
 import static Interfaz.Ventana3.etiquetaTiempo;
+import EDD.Monticulobinmin;
+import static Interfaz.Ventana3.Monticulo;
 
 /**
 *Mostrar documentos del usuario y seleccionar el que se vaya a eliminar
@@ -240,7 +242,12 @@ public class Ventana22 extends javax.swing.JFrame {
             
             //Insertar docToSend en el arbol
             
-           
+            //Nuevo
+            Monticulo.insertar(docToSend);
+            Monticulo.imprimirdatos();
+            
+            
+            
             
 //(Despues de mandarlo al arbol, se cambia el atributo EnCola del objeto):
             docToSend.setEncola(true);

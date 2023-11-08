@@ -13,6 +13,8 @@ import static Interfaz.Ventana15.nombreUsuElimDoc;
 import static Interfaz.Ventana15.docElim;
 import java.util.Calendar;
 import static Cronometro.Operacionescronometro.convertiraEtiquetat;
+import Documentos.Documentos;
+import EDD.Monticulobinmin;
 
 
 /**
@@ -23,6 +25,8 @@ import static Cronometro.Operacionescronometro.convertiraEtiquetat;
 public class Ventana3 extends javax.swing.JFrame {
 
     public static int etiquetaTiempo;
+    public static Documentos docaImprimir;
+    public static Monticulobinmin Monticulo;
     
   
     /**
@@ -42,6 +46,7 @@ public class Ventana3 extends javax.swing.JFrame {
         int segundos = c.get(Calendar.SECOND);
         String a = hora+":"+minutos+":"+segundos;
         lbhorainicio.setText(a);
+        Monticulo = new Monticulobinmin(200);
 
     }
     
@@ -232,6 +237,11 @@ public class Ventana3 extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(175, 196, 216));
 
         btliberarimp.setText("Liberar impresora");
+        btliberarimp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btliberarimpActionPerformed(evt);
+            }
+        });
 
         bteliminardoccola.setText("Eliminar Doc en cola");
 
@@ -250,7 +260,7 @@ public class Ventana3 extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btliberarimp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btenviarColaimpr, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                    .addComponent(btenviarColaimpr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bteliminardoccola, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(283, Short.MAX_VALUE))
         );
@@ -441,6 +451,27 @@ public class Ventana3 extends javax.swing.JFrame {
 
         
     }//GEN-LAST:event_btenviarColaimprActionPerformed
+
+    private void btliberarimpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btliberarimpActionPerformed
+        // nuevo
+        Documentos docaImprimir = Monticulo.getMin();
+//        System.out.println(docaImprimir.getNombredoc());
+
+        
+        
+        
+        if (!Monticulo.esVacio()) {
+            Monticulo.eliminarMin();
+            Monticulo.imprimirdatos();
+           Ventana19 v19 = new Ventana19(docaImprimir);
+          
+        }
+        
+        else{
+            Ventana23 v23 = new Ventana23();
+        
+        }
+    }//GEN-LAST:event_btliberarimpActionPerformed
 
     /**
      * @param args the command line arguments
