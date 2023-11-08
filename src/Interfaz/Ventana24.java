@@ -26,7 +26,7 @@ public class Ventana24 extends javax.swing.JFrame {
         lbnombreDoc.setText(docToSend.getNombredoc());
         lbtipoDoc.setText(docToSend.getTipo());
         lbsegundosDoc.setText(String.valueOf(docToSend.getEtTiempo())+" seg/s.");
-        lbtamanoDoc.setText(String.valueOf(docToSend.getTamano()+" pág/s."));
+        lbtamanoDoc.setText(String.valueOf(docToSend.getTamano()));
         int numPrioridad = docToSend.getMultPrioUsu();
         String tipoPrioridad = null;
         switch (numPrioridad) {
