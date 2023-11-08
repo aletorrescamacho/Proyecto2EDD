@@ -5,11 +5,9 @@
  */
 package Prueba;
 
-/**
- *
- * @author Rebeca
- */
+
 import java.util.Arrays;
+//solo para usar el metodo imprimir para imprimirlo como string y poder mostrar la secuencia d la cola de impresion
 
 
 public class MinHeap {
