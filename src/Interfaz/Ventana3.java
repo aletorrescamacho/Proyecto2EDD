@@ -82,6 +82,7 @@ public class Ventana3 extends javax.swing.JFrame {
         btliberarimp = new javax.swing.JButton();
         bteliminardoccola = new javax.swing.JButton();
         btenviarColaimpr = new javax.swing.JButton();
+        btinfoEtTiempo = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btvistasecuencia = new javax.swing.JButton();
         btvistaarbol = new javax.swing.JButton();
@@ -252,6 +253,13 @@ public class Ventana3 extends javax.swing.JFrame {
             }
         });
 
+        btinfoEtTiempo.setText("Info Et. Tiempo");
+        btinfoEtTiempo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btinfoEtTiempoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -261,8 +269,9 @@ public class Ventana3 extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btliberarimp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btenviarColaimpr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bteliminardoccola, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(283, Short.MAX_VALUE))
+                    .addComponent(bteliminardoccola, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btinfoEtTiempo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(297, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,9 +280,11 @@ public class Ventana3 extends javax.swing.JFrame {
                 .addComponent(btliberarimp)
                 .addGap(18, 18, 18)
                 .addComponent(btenviarColaimpr)
-                .addGap(24, 24, 24)
+                .addGap(18, 18, 18)
                 .addComponent(bteliminardoccola)
-                .addContainerGap(262, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btinfoEtTiempo)
+                .addContainerGap(227, Short.MAX_VALUE))
         );
 
         tp.addTab("Impresión", jPanel1);
@@ -464,6 +475,7 @@ public class Ventana3 extends javax.swing.JFrame {
             Monticulo.eliminarMin();
             Monticulo.imprimirdatos();
            Ventana19 v19 = new Ventana19(docaImprimir);
+           docaImprimir.setEncola(false);
           
         }
         
@@ -472,6 +484,10 @@ public class Ventana3 extends javax.swing.JFrame {
         
         }
     }//GEN-LAST:event_btliberarimpActionPerformed
+
+    private void btinfoEtTiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btinfoEtTiempoActionPerformed
+       Ventana25 v25 = new Ventana25();
+    }//GEN-LAST:event_btinfoEtTiempoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -515,6 +531,7 @@ public class Ventana3 extends javax.swing.JFrame {
     private javax.swing.JButton bteliminardoccola;
     private javax.swing.JButton bteliminarusu;
     private javax.swing.JButton btenviarColaimpr;
+    private javax.swing.JButton btinfoEtTiempo;
     private javax.swing.JButton btliberarimp;
     private javax.swing.JButton btmostrarusu;
     private javax.swing.JButton btsalir;
