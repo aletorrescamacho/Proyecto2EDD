@@ -41,6 +41,8 @@ public class Operacionescronometro {
         
     return tiempoCorr;
     }
+   
+    
     public static void main(String[] args) {
         
 	}
