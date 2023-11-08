@@ -22,6 +22,7 @@ public class Ventana5 extends javax.swing.JFrame {
     public static Documentos nuevoDoc;
     public static String Nombreusu;
     public static String nombreUsuAggDoc;
+    public static int multPrioUsu = 0;
     
     
     /**
@@ -279,6 +280,17 @@ public class Ventana5 extends javax.swing.JFrame {
             while (!usuAux.getElem().getNombreusu().equalsIgnoreCase(Nombreusu)){
                 usuAux = usuAux.getSig();
             }
+            
+            //Con los siguientes if else establecemos un multiplicador para la etiqueta de tiempo del documento que dependera de la prioridad que tenga el usuario propietario del doc
+            if (usuAux.getElem().getTipo().equals("prioridad_alta") ){
+                multPrioUsu = 1;
+            }
+            else if (usuAux.getElem().getTipo().equals("prioridad_media")){
+                 multPrioUsu = 3;
+            }
+            else{
+                multPrioUsu = 5;
+            }
 
             Lista <Documentos> docsUsu = usuAux.getElem().getListadocs();
 
@@ -322,14 +334,37 @@ public class Ventana5 extends javax.swing.JFrame {
                 }
 
                 if (boolAux == true){
+                    
                     nuevoDoc = new Documentos(docNombre,tipoDoc,pags);
+                    
+//Establecemos el atributo multPrioUsu (multiplicador dependiente de la prioridad del propietario) del documento, segun la prioridad del propietario del doc
+                    nuevoDoc.setMultPrioUsu(multPrioUsu);   
+                    
+                    //Establecemos el atributo multPrioTam (multiplicador dependiente de la cantidad de paginas del documento).
+                    if (pags < 10){
+                        nuevoDoc.setMultPrioTam(1);   
+                    }
+                    else if (pags < 50){
+                        nuevoDoc.setMultPrioTam(2);   
+                    }
+                    else if (pags < 100){
+                        nuevoDoc.setMultPrioTam(3);   
+                    }
+                    else if (pags < 500) {
+                        nuevoDoc.setMultPrioTam(4);                       
+                    }
+                    else{
+                        nuevoDoc.setMultPrioTam(5);   
+                    }
+                    
+                    //Agregamos finalmente a la lista de documentos del usuario
                     docsUsu.Agregarfinal(nuevoDoc);
+                   
 
-
+                    // variable que guarda el nombre del usuario final que crea el documento. Variable usada en el textarea de la segunda pestana. (hace el textarea m'as tolerante a fallos).
                     nombreUsuAggDoc = Nombreusu;
 
-
-
+                    
                     this.dispose();
                 
             }

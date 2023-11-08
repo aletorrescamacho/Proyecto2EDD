@@ -46,7 +46,7 @@ public class Operaciones {
                 String info1 = entrada.nextLine();
                 String[] info2 = info1.split(",");
                 String nombre = info2[0];     
-                String tipo = info2[1];
+                String tipo = info2[1].replaceAll(" ","");
                 Usuarios u = new Usuarios(nombre,tipo);
                 //System.out.println(entrada.nextLine());
                 if (!nombre.equalsIgnoreCase("usuario") && !tipo.equalsIgnoreCase("tipo")){

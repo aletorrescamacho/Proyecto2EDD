@@ -22,6 +22,7 @@ import static Cronometro.Operacionescronometro.convertiraEtiquetat;
  */
 public class Ventana3 extends javax.swing.JFrame {
 
+    public static int etiquetaTiempo;
     
   
     /**
@@ -412,6 +413,8 @@ public class Ventana3 extends javax.swing.JFrame {
                     tamostrarDocs.append("Último Documento Creado: \n" );
                     tamostrarDocs.append("Nombre: "+nuevoDoc.getNombredoc()+"\n");
                     tamostrarDocs.append("Usuario Propietario: "+nombreUsuAggDoc+"\n");
+                    tamostrarDocs.append("Multiplicador Prioridad Usuario: "+nuevoDoc.getMultPrioUsu()+"\n");
+                    tamostrarDocs.append("Multiplicador Prioridad Tamano: "+nuevoDoc.getMultPrioTam()+"\n");
                 }
                 else{
                     tamostrarDocs.append("No se ha creado ningún documento." );
@@ -421,6 +424,8 @@ public class Ventana3 extends javax.swing.JFrame {
                     tamostrarDocs.append("Último Documento Eliminado: \n");
                     tamostrarDocs.append("Nombre: "+docElim.getElem().getNombredoc()+"\n");
                     tamostrarDocs.append("Usuario Propietario: "+nombreUsuElimDoc+"\n");
+                    tamostrarDocs.append("Multiplicador Prioridad Usuario: "+docElim.getElem().getMultPrioUsu()+"\n");
+                    tamostrarDocs.append("Multiplicador Prioridad Tamano: "+docElim.getElem().getMultPrioTam()+"\n");
                 }
                 
                 else{
@@ -430,7 +435,10 @@ public class Ventana3 extends javax.swing.JFrame {
     }//GEN-LAST:event_mostrarDocActionPerformed
 
     private void btenviarColaimprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btenviarColaimprActionPerformed
-        int etiquetaTiempo = convertiraEtiquetat(tiempo, lbhorainicio);
+        etiquetaTiempo = convertiraEtiquetat(tiempo, lbhorainicio);
+        
+        Ventana21 v21 = new Ventana21();
+
         
     }//GEN-LAST:event_btenviarColaimprActionPerformed
 
