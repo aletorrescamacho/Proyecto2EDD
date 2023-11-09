@@ -7,9 +7,18 @@ package Cronometro;
 
 import javax.swing.JLabel;
 
-
+/**
+*Operaciones relacionadas con el Reloj
+*@author: Alessandra Torres
+*@version: 05/11/23
+ */
 public class Operacionescronometro {
-    
+  
+    /**
+    *convierte un string tiempo con formato "00:00:00" en segundos
+    *@author: Alessandra Torres
+    *@version: 05/11/23
+     */
     private static int convertiraSeg(String hora){
         String[] arrShora = hora.split(":");
         int[] arrIhora = new int[3];
@@ -29,6 +38,11 @@ public class Operacionescronometro {
     return Segtotales;
     }
     
+    /**
+    *Convierte a Etiqueta de tiempo restando segundos actuales con segundos de inicio del programa
+    *@author: Alessandra Torres
+    *@version: 05/11/23
+     */
     public static int convertiraEtiquetat(JLabel tiempo, JLabel lbhorainicio){
         String inicioS = lbhorainicio.getText();
         String ahoraS = tiempo.getText();
@@ -43,7 +57,5 @@ public class Operacionescronometro {
     }
    
     
-    public static void main(String[] args) {
-        
-	}
+  
 }

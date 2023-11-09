@@ -6,7 +6,7 @@
 package Cronometro;
 
 /**
-*Crea el tiempo para mostrarlo en la ventana 3
+*Crea el tiempo para mostrarlo en la ventana 3 con ayuda de thread y Calendar para tomar la hora del dia
 *@author: Alessandra Torres
 *@version: 03/11/23
  */  
@@ -22,9 +22,7 @@ public class Cronometro extends Thread{
         this.caja = caja;
     }
     
-    
-    
-    
+
     public void run(){
         while(true){
             try {

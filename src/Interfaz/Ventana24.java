@@ -34,7 +34,7 @@ public class Ventana24 extends javax.swing.JFrame {
                 tipoPrioridad = "Prioridad Alta";
                 break;
             case 2:
-                tipoPrioridad = "Prioridad Media";
+                tipoPrioridad = "Prioridad Media"; 
                 break;
             case 3:
                 tipoPrioridad = "Prioridad Baja";

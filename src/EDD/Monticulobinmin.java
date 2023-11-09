@@ -6,8 +6,9 @@
 package EDD;
 
 /**
- *
- * @author Rebeca
+*Clase monticulo binario
+*@author: Luis Soriano y Alessandra Torres
+*@version: 08/11/23
  */
 import Documentos.Documentos;
 import java.util.Arrays;
@@ -32,6 +33,13 @@ public class Monticulobinmin {
         return false;
      }
     }
+    
+    
+    /**
+    *Métodos getIndPadre, getIndHijoIzq, getIndHijoDer, devuelven el indice en el del padre, hijo Izq o hijo Derecho respectivamente del arreglo
+    *@author: Luis Soriano y Alessandra Torres
+    *@version: 08/11/23
+     */
 
     protected static int getIndPadre(int idx) {
         return (idx - 1) / 2;
@@ -45,6 +53,11 @@ public class Monticulobinmin {
         return idx * 2 + 2;
     }
 
+    /**
+    *Intercambia una posición del arreglo por otra, valida que las posiciones dadas por parametros no sean menor que 0 y que esten dentro del largo del array
+    *@author: Luis Soriano y Alessandra Torres
+    *@version: 08/11/23
+     */
     protected void intercambiar(Documentos[] a, int p1, int p2) {
         if (p1 < 0 || p1 > a.length - 1 || p2 < 0 || p2 > a.length - 1) {
             return;
@@ -54,11 +67,21 @@ public class Monticulobinmin {
         a[p2] = temp;
     }
 
+     /**
+    *Con ayuda de la java.util.Arrays convierte el arreglo a String para poderlo imprimir
+    *@author: Luis Soriano y Alessandra Torres
+    *@version: 08/11/23
+     */
     public String toString() {
         
         return Arrays.toString(Arrays.copyOfRange(this.arrMonticulo, 0, this.tamMonticulo));
     }
     
+     /**
+    *Imprime el arreglo como String mostrando los datos del documento (Nombre y Etiqueta de tiempo)
+    *@author: Luis Soriano y Alessandra Torres
+    *@version: 08/11/23
+     */
     public void imprimirdatos() {
         System.out.print("[ ");
         for (int i = 0; i < this.tamMonticulo; i++) {
@@ -82,6 +105,13 @@ public class Monticulobinmin {
 //			parPos = getIndPadre(curPos);
 //		}
 //	}
+    
+    
+     /**
+    *Inserta en el monticulo un nuevo documento enviado a la cola de impresión, si es el más pequeño en etiqueta de tiempo lo envia a la raíz
+    *@author: Luis Soriano y Alessandra Torres
+    *@version: 08/11/23
+     */
     public void insertar(Documentos docToSend) {
         if (this.tamMonticulo == this.capacidadMax) {
             System.out.println("\nHeap capacidad reached! No more elements allowed.\n");
@@ -97,11 +127,22 @@ public class Monticulobinmin {
             parPos = getIndPadre(curPos);
         }
     }
-
+    
+    /**
+    *Devuelve la raíz del monticulo (Documento con menor etiqueta de tiempo)
+    *@author: Luis Soriano y Alessandra Torres
+    *@version: 08/11/23
+     */
     public Documentos getMin() {
         return this.arrMonticulo[0];
     }
-
+    
+    
+     /**
+    *Elimina el elemento con la etiqueta de tiempo más pequeña del moonticulo y con auyuda de MinHeapify lo reordena
+    *@author: Luis Soriano y Alessandra Torres
+    *@version: 08/11/23
+     */
     public Documentos eliminarMin() {
         Documentos min = getMin();
         intercambiar(this.arrMonticulo, 0, tamMonticulo - 1);
@@ -112,6 +153,11 @@ public class Monticulobinmin {
         return min;
     }
 
+    /**
+    *Imprime el árbol nivel por nivel
+    *@author: Luis Soriano y Alessandra Torres
+    *@version: 08/11/23
+     */
     public void imprimirArbol() {
         int levelSize = 1, cover = 0, level = 1;
         int remain = this.tamMonticulo;
@@ -127,7 +173,12 @@ public class Monticulobinmin {
             levelSize <<= 1;
         }
     }
-
+    
+    /**
+    *Reordena el monticulo para que el Documento con menor etiqueta de tiempo se encuentre en la raíz
+    *@author: Luis Soriano y Alessandra Torres
+    *@version: 08/11/23
+     */
     public void minHeapify(int idx) {
         if (idx >= this.tamMonticulo) {
             System.out.println("\nNo element found or index out of heap capacidad!\n");
@@ -160,8 +211,5 @@ public class Monticulobinmin {
 //		return true;
 //	}
 //	
-    public static void main(String[] args) {
-
-    }
 
 }

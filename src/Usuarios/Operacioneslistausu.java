@@ -73,7 +73,12 @@ public class Operacioneslistausu {
         }    
 
             }
-
+    
+        /**
+        *Muestra los usuarios y sus documentos en el textArea
+        *@author: Alessandra Torres
+        *@version: 05/11/23
+        */
         public static void Mostrarusu(Lista<Usuarios> listausu, JTextArea tamostrarUsu) {
             Nodo <Usuarios> aux1 = listausu.getpFirst();
             tamostrarUsu.setText("");
