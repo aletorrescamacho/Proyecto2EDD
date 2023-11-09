@@ -25,7 +25,7 @@ public class Ventana19 extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         lbnombreDoc.setText(docaImprimir.getNombredoc());
         lbtipoDoc.setText(docaImprimir.getTipo());
-        lbsegundosDoc.setText(String.valueOf(docaImprimir.getEtTiempo())+" seg/s.");
+        lbsegundosDoc.setText(String.valueOf(docaImprimir.getEtTiempo()));
         lbtamanoDoc.setText(String.valueOf(docaImprimir.getTamano()+" pág/s."));
         
     }
