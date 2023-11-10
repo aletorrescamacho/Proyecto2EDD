@@ -22,6 +22,7 @@ public class Ventana22 extends javax.swing.JFrame {
 
          public static String docName;
          public static Lista <Documentos> userDocs;
+         public static Documentos docToSend;
     
     /**
      * Creates new form Ventana22
@@ -261,6 +262,7 @@ public class Ventana22 extends javax.swing.JFrame {
 
 
         this.dispose();
+        Ventana24 v24 = new Ventana24(docToSend);
     }//GEN-LAST:event_btEnviarColaActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
