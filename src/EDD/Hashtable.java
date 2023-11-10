@@ -9,20 +9,20 @@ import Documentos.Documentos;
 
  /**
 *Clase Hashtable, con su constructor se crea un arreglo de tamaño indicado en la variable capacidad y de tipo documentos, es nuestra tabla de dispersión
-*@author: Alessandra Torres
+*@author: Luis Soriano
 *@version: 05/11/23
  */
 public class Hashtable {
-    private Documentos[] arrHashTable;
+    private Lista <Documentos>[] arrHashTable;
     private int capacidad;
     
 
     public Hashtable() {
         this.capacidad = 500;
-        arrHashTable = new Documentos[capacidad];
+        arrHashTable = new Lista [capacidad];
     }
 
-    public Documentos[] getArrHashTable() {
+    public Lista [] getArrHashTable() {
         return arrHashTable;
     }
 
@@ -50,7 +50,7 @@ public class Hashtable {
     
     /**
     *Algoritmo Hash en caso de colisión, en caso de ese problema se realiza este algoritmo en el usuario para conseguirle otro puesto en la tabla
-    *@author: Alessandra Torres
+    *@author: Luis Soriano y Alessandra Torres
     *@version: 05/11/23
      */
         public int algoritmoHashColision(String nombreUsu) {
@@ -72,8 +72,9 @@ public class Hashtable {
 
   public static void main(String[] args) {
       Hashtable ht1 = new Hashtable();
-      System.out.println(ht1.algoritmoHashDefault("ales"));
-      System.out.println(ht1.algoritmoHashColision("ales"));
+      System.out.println(ht1.algoritmoHashDefault("2"));
+      System.out.println(ht1.algoritmoHashColision("2"));
+      
 	}
 
 }
