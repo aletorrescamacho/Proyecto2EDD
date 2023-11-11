@@ -246,6 +246,11 @@ public class Ventana3 extends javax.swing.JFrame {
         });
 
         bteliminardoccola.setText("Eliminar Doc en cola");
+        bteliminardoccola.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bteliminardoccolaActionPerformed(evt);
+            }
+        });
 
         btenviarColaimpr.setText("Enviar Doc a cola de Impresión");
         btenviarColaimpr.addActionListener(new java.awt.event.ActionListener() {
@@ -500,6 +505,10 @@ public class Ventana3 extends javax.swing.JFrame {
     private void btinfoEtTiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btinfoEtTiempoActionPerformed
        Ventana25 v25 = new Ventana25();
     }//GEN-LAST:event_btinfoEtTiempoActionPerformed
+
+    private void bteliminardoccolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bteliminardoccolaActionPerformed
+        Ventana26 v26 = new Ventana26();
+    }//GEN-LAST:event_bteliminardoccolaActionPerformed
 
     /**
      * @param args the command line arguments
