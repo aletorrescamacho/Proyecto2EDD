@@ -3,27 +3,37 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interfaz;
+
 import Documentos.Documentos;
 import EDD.Lista;
 import EDD.Nodo;
+//para trabajar con la lista de usuarios
 import static Interfaz.Ventana1.listausu;
+//usuario seleccionado combobox ventana anterior
 import static Interfaz.Ventana21.userName;
 import Usuarios.Usuarios;
 import static Interfaz.Ventana3.etiquetaTiempo;
 import EDD.Monticulobinmin;
 import static Interfaz.Ventana3.Monticulo;
+import static Main.Main.Hashtable;
+import EDD.Hashtable;
 
 /**
-*Mostrar documentos del usuario y seleccionar el que se vaya a eliminar
-*@author: Luis Soriano
-*@version: 07/11/23
+ * Enviar docs a cola de impresion
+ *
+ * @author: Luis Soriano
+ * @version: 07/11/23
  */
 public class Ventana22 extends javax.swing.JFrame {
 
-         public static String docName;
-         public static Lista <Documentos> userDocs;
-         public static Documentos docToSend;
-    
+    public static String docName;
+    public static Lista<Documentos> userDocs;
+    public static Documentos docToSend;
+
+    //variables Hashtable
+    Usuarios htUsu;
+    Nodo<Usuarios> nodHtUsu;
+
     /**
      * Creates new form Ventana22
      */
@@ -32,52 +42,57 @@ public class Ventana22 extends javax.swing.JFrame {
         this.pack();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
-        
-                   //buscamos el usuario en nuestra lista de usuarios para encontrar posteriormente su lista de documentos
-         Nodo <Usuarios> usuAux1 = listausu.getpFirst();       
-        while (!usuAux1.getElem().getNombreusu().equalsIgnoreCase(userName)){
+
+        //buscamos el usuario en nuestra lista de usuarios para encontrar posteriormente su lista de documentos
+        Nodo<Usuarios> usuAux1 = listausu.getpFirst();
+        while (!usuAux1.getElem().getNombreusu().equalsIgnoreCase(userName)) {
             usuAux1 = usuAux1.getSig();
         }
-       userDocs = usuAux1.getElem().getListadocs();
-        
-        Nodo <Documentos> docUser = userDocs.getpFirst();
-        
-         //Revisamos que la lista de documentos no este vacia
-        
+
+        //obtenemos la lista de todos los documentos que posee el usuario
+        userDocs = usuAux1.getElem().getListadocs();
+
+        Nodo<Documentos> docUser = userDocs.getpFirst();
+
+        //Revisamos que la lista de documentos no este vacia, si esta vacia, se cierra esta ventana antes de mostrarse y se muestra la ventana 17 que indica que el usuario no tiene documentos creados
         boolean boolaux1 = false;
-        
-        if (docUser== null){
+
+        if (docUser == null) {
             boolaux1 = true;
-            Ventana17 v17 =new Ventana17();
+            Ventana17 v17 = new Ventana17();
             this.dispose();
         }
-        
-         //Revisamos que la lista de documentos del usuario tenga por lo menos un documento que no este en la cola.
-  
-            while (docUser != null){
-                //si existe un documento que no esta en cola el aux booleano pasa a true y no se ejecuta el codigo de abajo:
-                if (!docUser.getElem().isEncola()){
-                    boolaux1 = true;
-                    break;
-                    }
-                docUser = docUser.getSig();
-            }
 
-            if (boolaux1 == false){
-                Ventana18 v18 = new Ventana18 ();
-                this.dispose();
+        //Revisamos que la lista de documentos del usuario tenga por lo menos un documento que no este en la cola, porque si todos sus docs estan en cola, no es posible trabajar con este usuario
+        while (docUser != null) {
+            //si existe un documento que no esta en cola el aux booleano pasa a true y no se ejecuta el codigo de abajo:
+            if (!docUser.getElem().isEncola()) {
+                boolaux1 = true;
+                break;
             }
+            docUser = docUser.getSig();
+        }
 
-            ////////////////////////////////////////////////
-            
-            while (docUser != null){
-                //si el documento esta en la cola de impresion no se agrega al combobox
-                if (!docUser.getElem().isEncola()){ //el if solo se ejecuta si el doc no esta en cola
-                    cboDocsUsu.addItem(docUser.getElem().getNombredoc());
-                    }
-                docUser = docUser.getSig();
+        //(codigo de abajo) muestra una ventana mensaje y cierra la actual
+        if (boolaux1 == false) {
+            Ventana18 v18 = new Ventana18();
+            this.dispose();
+        }
+
+        ////////////////////////////////////////////////
+        //agregamos todos los documentos que no esten en la cola del usuario al combobox
+        while (docUser != null) {
+            //si el documento esta en la cola de impresion no se agrega al combobox
+            if (!docUser.getElem().isEncola()) { //el if solo se ejecuta si el doc no esta en cola
+                cboDocsUsu.addItem(docUser.getElem().getNombredoc());
             }
-        
+            docUser = docUser.getSig();
+        }
+
+        //Se crea un nodo nuevo que guarda toda la informacion del usuario que manda un documento a la cola de impresion para despues ingresarlo a la hashtable.
+        htUsu = usuAux1.getElem();
+        nodHtUsu = new Nodo(htUsu);
+
     }
 
     /**
@@ -226,43 +241,65 @@ public class Ventana22 extends javax.swing.JFrame {
     }//GEN-LAST:event_cboDocsUsuActionPerformed
 
     private void btEnviarColaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnviarColaActionPerformed
-                //documento seleccionado
+        //documento seleccionado
         docName = (String) cboDocsUsu.getSelectedItem();
-        
+
 //buscamos el documento a enviar en la lista de documentos del usuario
-            Nodo <Documentos> nodoDoc = userDocs.getpFirst();
-            while (!nodoDoc.getElem().getNombredoc().equalsIgnoreCase(docName)){
-                nodoDoc = nodoDoc.getSig();
-            }
-            
-            Documentos docToSend = nodoDoc.getElem();
-            
-            System.out.println(docToSend.getEtTiempo());
-            
-            docToSend.setEtTiempo(etiquetaTiempo, docToSend.getMultPrioUsu(), docToSend.getMultPrioTam());
-            
-            //Insertar docToSend en el arbol
-            
-            //Nuevo
-            Monticulo.insertar(docToSend);
-            Monticulo.imprimirdatos();
-            
-            
-            
-            
+        Nodo<Documentos> nodoDoc = userDocs.getpFirst();
+        while (!nodoDoc.getElem().getNombredoc().equalsIgnoreCase(docName)) {
+            nodoDoc = nodoDoc.getSig();
+        }
+
+        //se guarda en una variable la instancia del documento seleccionada por el usuario
+        Documentos docToSend = nodoDoc.getElem();
+
+        //borrar:
+        System.out.println(docToSend.getEtTiempo());
+
+        //se define correctamente su etiqueta de tiempo
+        docToSend.setEtTiempo(etiquetaTiempo, docToSend.getMultPrioUsu(), docToSend.getMultPrioTam());
+
+        //Insertar docToSend (el doc a enviar) en el arbol
+        Monticulo.insertar(docToSend);
+        Monticulo.imprimirdatos();
+
 //(Despues de mandarlo al arbol, se cambia el atributo EnCola del objeto):
-            docToSend.setEncola(true);
-            System.out.println("\n");
-            System.out.println(docToSend.getEtTiempo());
-            System.out.println(docToSend.isEncola());
-            
-            
-            
+        docToSend.setEncola(true);
 
+        //////////////////////////////////////////////////////////////////////////////////ENVIAR A HASHTABLE////////////////////////////////////////////////////////////
+        //Metemos el nodo cuyo info es la instancia del usuario propietario del doc en la HashTable:
+        //se le pasa el algoritmo del hashtable al nombre del usuario prop. del doc para obtener su posicion en el array
+        int posUsuHt = Hashtable.algoritmoHashDefault(htUsu.getNombreusu());
+        
+        
+        //verificamos que dicha posicion este vacia o no
+        if (Hashtable.getArrHashTable()[posUsuHt] != null) {
+            //si no esta vacia significa que tiene un nodo de tipo usuario en dicha posicion que puede apuntar a otro nodo de tipo usuario, por eso::
+            Nodo<Usuarios> posHt = Hashtable.getArrHashTable()[posUsuHt];
+            while (posHt.getSig() != null) {
+                posHt = posHt.getSig();
+            }
+            //despues de conseguir el nod, hacemos que apunte al nuevo nodo 
+            posHt.setSig(nodHtUsu);
+        } else {
+            Hashtable.getArrHashTable()[posUsuHt] = nodHtUsu;
+        }
 
+//        Verificar que se estaba enviando a la hashtable System.out.println(Hashtable.getArrHashTable()[posUsuHt].getElem().getNombreusu());
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        //Prueba, borrar:
+        System.out.println("\n");
+        System.out.println(docToSend.getEtTiempo());
+        System.out.println(docToSend.isEncola());
+        Monticulo.imprimirdatos();
 
         this.dispose();
+
+        //ventana de doc enviado exitosamente
         Ventana24 v24 = new Ventana24(docToSend);
+
+
     }//GEN-LAST:event_btEnviarColaActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed

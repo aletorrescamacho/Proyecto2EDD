@@ -49,7 +49,7 @@ public class Ventana16 extends javax.swing.JFrame {
         }
         
       
-            //Revisamos que la lista de documentos del usuario tenga por lo menos un documento que no este en la cola.
+            ///////////////Revisamos que la lista de documentos del usuario tenga por lo menos un documento que no este en la cola.
   
             while (usuDoc != null){
                 //si existe un documento que no esta en cola el aux booleano pasa a true y no se ejecuta el codigo de abajo:

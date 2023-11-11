@@ -5,17 +5,23 @@
  */
 package Main;
 import Interfaz.Ventana1;
-import Cronometro.Cronometro;
+//import Cronometro.Cronometro;
+import EDD.Hashtable;
 
 
 
 public class Main {
 
+        public static Hashtable Hashtable = new Hashtable();
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         Ventana1 v1 = new Ventana1();
+
+
+        
+        
 
         
         

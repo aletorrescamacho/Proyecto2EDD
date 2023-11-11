@@ -19,10 +19,10 @@ import Documentos.Documentos;
  */
 public class Ventana5 extends javax.swing.JFrame {
 
-    public static Documentos nuevoDoc;
-    public static String Nombreusu;
-    public static String nombreUsuAggDoc;
-    public static int multPrioUsu = 0;
+    public static Documentos nuevoDoc; //se comparte con el textarea  de mostrar ultimo doc creado
+    public static String Nombreusu; //
+    public static String nombreUsuAggDoc; //se comparte en el textarea de mostrar ultimo doc creado
+    public static int multPrioUsu = 0; //pasar al boton
     
     
     /**

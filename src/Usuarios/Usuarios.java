@@ -13,6 +13,7 @@ import EDD.Lista;
 *@version: 03/11/23
  */
 public class Usuarios {
+
     private String Nombreusu;
     private String Tipo;
     private Lista<Documentos> Listadocs;
@@ -24,7 +25,6 @@ public class Usuarios {
     }
     
     
-
     /**
      * @return the Nombreusu
      */
