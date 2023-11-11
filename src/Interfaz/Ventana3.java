@@ -304,6 +304,11 @@ public class Ventana3 extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(175, 196, 216));
 
         btvistasecuencia.setText("Vista Secuencia Registros");
+        btvistasecuencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btvistasecuenciaActionPerformed(evt);
+            }
+        });
 
         btvistaarbol.setText("Vista Árbol");
 
@@ -500,6 +505,10 @@ public class Ventana3 extends javax.swing.JFrame {
     private void btinfoEtTiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btinfoEtTiempoActionPerformed
        Ventana25 v25 = new Ventana25();
     }//GEN-LAST:event_btinfoEtTiempoActionPerformed
+
+    private void btvistasecuenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btvistasecuenciaActionPerformed
+        Ventana29 v28 = new Ventana29();
+    }//GEN-LAST:event_btvistasecuenciaActionPerformed
 
     /**
      * @param args the command line arguments
