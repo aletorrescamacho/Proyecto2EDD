@@ -9,33 +9,32 @@ import static Interfaz.Ventana1.listausu;
 import Usuarios.Usuarios;
 
 /**
-*Ventana 21 combobox usuario del doc que se va a mandar a imprimir
+*Ventana 26 mostrar usuarios para eliminar elementos de la cola
 *@author: Luis Soriano
-*@version: 05/11/23
+*@version: 10/11/23
  */
-public class Ventana21 extends javax.swing.JFrame {
-    
-        public static String userName;
+public class Ventana26 extends javax.swing.JFrame {
+    //nombre del usuario a usarse en la sig ventana
+    public static String nomUsuHt;
 
     /**
-     * Creates new form Ventana21
+     * Creates new form Ventana26
      */
-    public Ventana21() {
+    public Ventana26() {
         initComponents();
         this.pack();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
-        
+    
         //anadimos todos lo usuarios al combobox de usuarios
         Nodo <Usuarios> usuAux = listausu.getpFirst();       
         while (usuAux != null){
             cboUsuarios.addItem(usuAux.getElem().getNombreusu());
             usuAux = usuAux.getSig();
         }
-        
-        
+    
     }
-
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -53,13 +52,12 @@ public class Ventana21 extends javax.swing.JFrame {
         btCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(50, 75, 149));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Enviar documento a cola de impresión");
+        jLabel5.setText("Eliminar documento de cola de impresión");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -100,17 +98,18 @@ public class Ventana21 extends javax.swing.JFrame {
                     .addComponent(cboUsuarios, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                         .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(90, 90, 90))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(157, 157, 157)
-                .addComponent(jLabel7)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel5))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(177, 177, 177)
+                        .addComponent(jLabel7)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(15, 15, 15))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,7 +124,7 @@ public class Ventana21 extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSiguiente, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -149,14 +148,18 @@ public class Ventana21 extends javax.swing.JFrame {
     private void cboUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboUsuariosActionPerformed
 
     }//GEN-LAST:event_cboUsuariosActionPerformed
-
+/**
+*Boton siguiente lleva a ventana en la que se eliminan los documentos d ela cola de impresion
+*@author: Luis Soriano
+*@version: 10/11/23
+ */
     private void btSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSiguienteActionPerformed
-                    //usuario seleccionado del primer combobox
-             userName = (String) cboUsuarios.getSelectedItem();
-             
-             Ventana22 v22 = new Ventana22 ();
-             
-             this.dispose();
+            //usuario seleccionado del primer combobox
+            nomUsuHt = (String) cboUsuarios.getSelectedItem();
+            
+            Ventana27 v27 = new Ventana27();
+            
+            this.dispose();
     }//GEN-LAST:event_btSiguienteActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
@@ -180,20 +183,20 @@ public class Ventana21 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ventana21.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana26.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ventana21.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana26.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ventana21.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana26.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ventana21.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana26.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ventana21().setVisible(true);
+                new Ventana26().setVisible(true);
             }
         });
     }
