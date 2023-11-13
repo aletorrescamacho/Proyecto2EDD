@@ -24,6 +24,15 @@ public class Monticulobinmin {
         this.capacidadMax = capacidad;
         this.arrMonticulo = new Documentos[capacidad];
     }
+
+    public Documentos[] getArrMonticulo() {
+        return arrMonticulo;
+    }
+
+    public int getTamMonticulo() {
+        return tamMonticulo;
+    }
+    
     
     public boolean esVacio(){
      if (this.tamMonticulo == 0){

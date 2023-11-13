@@ -465,11 +465,17 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Vista Secuencia Registros"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btvistasecuenciaActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btvistaarbol">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Vista &#xc1;rbol"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btvistaarbolActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

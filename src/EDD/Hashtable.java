@@ -90,11 +90,6 @@ public class Hashtable {
 //
 //    }
     
-public static void main(String[] args) {
-//      Hashtable ht1 = new Hashtable();
-
-      
-	}
 
 }
 
