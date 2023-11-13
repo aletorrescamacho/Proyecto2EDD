@@ -16,7 +16,7 @@ import java.util.Calendar;
 import static Cronometro.Operacionescronometro.convertiraEtiquetat;
 import Documentos.Documentos;
 import EDD.Monticulobinmin;
-//import static Graficos.Operacionesgraficos.Verarbol;
+import static Graficos.Operacionesgraficos.Verarbol;
 
 /**
  * Ventana 3 ventana principal donde se ejecutan las operaciones
@@ -46,7 +46,7 @@ public class Ventana3 extends javax.swing.JFrame {
         int segundos = c.get(Calendar.SECOND);
         String a = hora + ":" + minutos + ":" + segundos;
         lbhorainicio.setText(a);
-        Monticulo = new Monticulobinmin(200);
+        Monticulo = new Monticulobinmin(100);
 
     }
 
@@ -524,7 +524,7 @@ public class Ventana3 extends javax.swing.JFrame {
         
         }
         else{
-//            Verarbol();
+            Verarbol();
         
         }
     }//GEN-LAST:event_btvistaarbolActionPerformed
