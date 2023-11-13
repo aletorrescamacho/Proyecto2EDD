@@ -32,6 +32,7 @@ public class Operacionesgraficos {
                 + "}");
         System.setProperty("org.graphstream.ui", "swing");
         Viewer viewer = graph.display();
+        viewer.setCloseFramePolicy(Viewer.CloseFramePolicy.HIDE_ONLY);
 
 //    viewer.disableAutoLayout();
         viewer.enableAutoLayout();
@@ -49,7 +50,7 @@ public class Operacionesgraficos {
             niveles++;
         }
         System.out.println(niveles);
-
+        try{
         Node a = graph.addNode(String.valueOf(arrTam[0].getNombredoc()));
         a.setAttribute("ui.label", String.valueOf(arrTam[0].getNombredoc()));
         a.setAttribute("xy", 0, 100);
@@ -82,6 +83,10 @@ public class Operacionesgraficos {
 
         }
         }
-
+        
+}
+        catch(Exception e){
+        
+        }
     }
 }
