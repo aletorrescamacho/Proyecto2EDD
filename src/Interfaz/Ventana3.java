@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Interfaz;
+
 import static Interfaz.Ventana1.listausu;
 import static Usuarios.Operacioneslistausu.Mostrarusu;
 import Cronometro.Cronometro;
@@ -15,24 +16,23 @@ import java.util.Calendar;
 import static Cronometro.Operacionescronometro.convertiraEtiquetat;
 import Documentos.Documentos;
 import EDD.Monticulobinmin;
-
+//import static Graficos.Operacionesgraficos.Verarbol;
 
 /**
-*Ventana 3 ventana principal donde se ejecutan las operaciones
-*@author: Alessandra Torres
-*@version: 03/11/23
+ * Ventana 3 ventana principal donde se ejecutan las operaciones
+ *
+ * @author: Alessandra Torres
+ * @version: 03/11/23
  */
 public class Ventana3 extends javax.swing.JFrame {
 
     public static int etiquetaTiempo;
     public static Documentos docaImprimir;
     public static Monticulobinmin Monticulo;
-    
-  
+
     /**
      * Creates new form Ventana3
      */
-
     public Ventana3() {
         initComponents();
         this.pack();
@@ -44,13 +44,11 @@ public class Ventana3 extends javax.swing.JFrame {
         int hora = c.get(Calendar.HOUR);
         int minutos = c.get(Calendar.MINUTE);
         int segundos = c.get(Calendar.SECOND);
-        String a = hora+":"+minutos+":"+segundos;
+        String a = hora + ":" + minutos + ":" + segundos;
         lbhorainicio.setText(a);
         Monticulo = new Monticulobinmin(200);
 
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -316,6 +314,11 @@ public class Ventana3 extends javax.swing.JFrame {
         });
 
         btvistaarbol.setText("Vista Árbol");
+        btvistaarbol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btvistaarbolActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -407,10 +410,11 @@ public class Ventana3 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 /**
-*Boton salir, pide confirmación en la ventana 4
-*@author: Alessandra Torres
-*@version: 03/11/23
- */
+     * Boton salir, pide confirmación en la ventana 4
+     *
+     * @author: Alessandra Torres
+     * @version: 03/11/23
+     */
     private void btsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btsalirActionPerformed
         Ventana4 v4 = new Ventana4();
         System.out.println(tiempo.getText());
@@ -426,18 +430,20 @@ public class Ventana3 extends javax.swing.JFrame {
 //        }
     }//GEN-LAST:event_btcreardocActionPerformed
     /**
-    *Abre la ventana 6, crear usuario
-    *@author: Alessandra Torres
-    *@version: 05/11/23
-    */
+     * Abre la ventana 6, crear usuario
+     *
+     * @author: Alessandra Torres
+     * @version: 05/11/23
+     */
     private void btcrearusuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btcrearusuActionPerformed
         Ventana6 v6 = new Ventana6();
     }//GEN-LAST:event_btcrearusuActionPerformed
     /**
-    *Abre la ventana 8, eliminar usuario
-    *@author: Alessandra Torres
-    *@version: 05/11/23
-    */
+     * Abre la ventana 8, eliminar usuario
+     *
+     * @author: Alessandra Torres
+     * @version: 05/11/23
+     */
     private void bteliminarusuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bteliminarusuActionPerformed
         Ventana8 v8 = new Ventana8();
     }//GEN-LAST:event_bteliminarusuActionPerformed
@@ -451,38 +457,35 @@ public class Ventana3 extends javax.swing.JFrame {
     }//GEN-LAST:event_btmostrarusuActionPerformed
 
     private void mostrarDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarDocActionPerformed
-                tamostrarDocs.setText("");
-                if (nuevoDoc != null){
-                    tamostrarDocs.append("Último Documento Creado: \n" );
-                    tamostrarDocs.append("Nombre: "+nuevoDoc.getNombredoc()+"\n");
-                    tamostrarDocs.append("Usuario Propietario: "+nombreUsuAggDoc+"\n");
-                    tamostrarDocs.append("Multiplicador Prioridad Usuario: "+nuevoDoc.getMultPrioUsu()+"\n");
-                    tamostrarDocs.append("Multiplicador Prioridad Tamano: "+nuevoDoc.getMultPrioTam()+"\n");
-                }
-                else{
-                    tamostrarDocs.append("No se ha creado ningún documento." );
-                }
-                if (docElim != null){
-                    tamostrarDocs.append("\n");
-                    tamostrarDocs.append("Último Documento Eliminado: \n");
-                    tamostrarDocs.append("Nombre: "+docElim.getElem().getNombredoc()+"\n");
-                    tamostrarDocs.append("Usuario Propietario: "+nombreUsuElimDoc+"\n");
-                    tamostrarDocs.append("Multiplicador Prioridad Usuario: "+docElim.getElem().getMultPrioUsu()+"\n");
-                    tamostrarDocs.append("Multiplicador Prioridad Tamano: "+docElim.getElem().getMultPrioTam()+"\n");
-                }
-                
-                else{
-                    tamostrarDocs.append("\n");
-                    tamostrarDocs.append("No se ha eliminado ningún documento." );
-                }
+        tamostrarDocs.setText("");
+        if (nuevoDoc != null) {
+            tamostrarDocs.append("Último Documento Creado: \n");
+            tamostrarDocs.append("Nombre: " + nuevoDoc.getNombredoc() + "\n");
+            tamostrarDocs.append("Usuario Propietario: " + nombreUsuAggDoc + "\n");
+            tamostrarDocs.append("Multiplicador Prioridad Usuario: " + nuevoDoc.getMultPrioUsu() + "\n");
+            tamostrarDocs.append("Multiplicador Prioridad Tamano: " + nuevoDoc.getMultPrioTam() + "\n");
+        } else {
+            tamostrarDocs.append("No se ha creado ningún documento.");
+        }
+        if (docElim != null) {
+            tamostrarDocs.append("\n");
+            tamostrarDocs.append("Último Documento Eliminado: \n");
+            tamostrarDocs.append("Nombre: " + docElim.getElem().getNombredoc() + "\n");
+            tamostrarDocs.append("Usuario Propietario: " + nombreUsuElimDoc + "\n");
+            tamostrarDocs.append("Multiplicador Prioridad Usuario: " + docElim.getElem().getMultPrioUsu() + "\n");
+            tamostrarDocs.append("Multiplicador Prioridad Tamano: " + docElim.getElem().getMultPrioTam() + "\n");
+        } else {
+            tamostrarDocs.append("\n");
+            tamostrarDocs.append("No se ha eliminado ningún documento.");
+        }
     }//GEN-LAST:event_mostrarDocActionPerformed
 
     private void btenviarColaimprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btenviarColaimprActionPerformed
         etiquetaTiempo = convertiraEtiquetat(tiempo, lbhorainicio);
-        
+
         Ventana21 v21 = new Ventana21();
 
-        
+
     }//GEN-LAST:event_btenviarColaimprActionPerformed
 
     private void btliberarimpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btliberarimpActionPerformed
@@ -490,25 +493,20 @@ public class Ventana3 extends javax.swing.JFrame {
         Documentos docaImprimir = Monticulo.getMin();
 //        System.out.println(docaImprimir.getNombredoc());
 
-        
-        
-        
         if (!Monticulo.esVacio()) {
             Monticulo.eliminarMin();
             Monticulo.imprimirdatos();
-           Ventana19 v19 = new Ventana19(docaImprimir);
-           docaImprimir.setEncola(false);
-          
-        }
-        
-        else{
+            Ventana19 v19 = new Ventana19(docaImprimir);
+            docaImprimir.setEncola(false);
+
+        } else {
             Ventana23 v23 = new Ventana23();
-        
+
         }
     }//GEN-LAST:event_btliberarimpActionPerformed
 
     private void btinfoEtTiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btinfoEtTiempoActionPerformed
-       Ventana25 v25 = new Ventana25();
+        Ventana25 v25 = new Ventana25();
     }//GEN-LAST:event_btinfoEtTiempoActionPerformed
 
 
@@ -520,10 +518,21 @@ public class Ventana3 extends javax.swing.JFrame {
         Ventana26 v26 = new Ventana26();
     }//GEN-LAST:event_bteliminardoccolaActionPerformed
 
+    private void btvistaarbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btvistaarbolActionPerformed
+        if (Monticulo.esVacio()){
+            Ventana30 v30 = new Ventana30();
+        
+        }
+        else{
+//            Verarbol();
+        
+        }
+    }//GEN-LAST:event_btvistaarbolActionPerformed
+
 
     /**
-     * @param args the command line arguments
-     */
+         * @param args the command line arguments
+         */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
