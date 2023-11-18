@@ -511,7 +511,7 @@ public class Ventana3 extends javax.swing.JFrame {
 
 
     private void btvistasecuenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btvistasecuenciaActionPerformed
-        Ventana29 v28 = new Ventana29();
+        Ventana29 v29 = new Ventana29();
     }//GEN-LAST:event_btvistasecuenciaActionPerformed
 
     private void bteliminardoccolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bteliminardoccolaActionPerformed

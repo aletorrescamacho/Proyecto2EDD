@@ -22,7 +22,7 @@ public class Ventana29 extends javax.swing.JFrame {
     public Ventana29() {
         initComponents();
         if (Monticulo.esVacio()) {
-            Ventana30 v29 = new Ventana30();
+            Ventana30 v30 = new Ventana30();
         } else {
             this.pack();
             this.setVisible(true);

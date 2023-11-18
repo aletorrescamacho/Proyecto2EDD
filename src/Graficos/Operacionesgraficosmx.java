@@ -40,34 +40,35 @@ public class Operacionesgraficosmx extends JFrame {
         Object parent = graph.getDefaultParent();
 
         Object Root = graph.insertVertex(parent, null, arrTam[0].getNombredoc(), 0, 0, 80, 30);
-        Object p = Root;
-        int cont = 0;
+        Object raiz = Root;
+        int contNodos= 0;
+        int contNodosXNivel = 4;
         for (int i = 1; i < arrTam.length; i++) {
             if (arrTam[i] == null) {
                 continue;
             } else {
                 Object v = graph.insertVertex(parent, null, arrTam[i].getNombredoc(), 0, 0, 80, 30);
-                graph.insertEdge(parent, null, "", p, v);
-                if (cont == 2) {
-                    p = v;
-                    cont = 0;
+                graph.insertEdge(parent, null, "", raiz, v);
+                if (contNodos == contNodosXNivel ) {
+                    contNodosXNivel = contNodosXNivel * 2;
+                    raiz = v;
                 }
-                int hijoder = (i - 1) / 2;
+                int hijoder = (2*i + 1) +1;
                 int hijoizq = i * 2 + 1;
                 if ((hijoder > arrTam.length - 1 || hijoizq > arrTam.length - 1) || (arrTam[hijoder] == null || arrTam[hijoizq] == null) ) {
                     continue;
                 } else {
-                    if (hijoder <= arrTam.length - 1) {
-                        Object v1 = graph.insertVertex(parent, null, arrTam[hijoder].getNombredoc(), 0, 0, 80, 30);
-                        arrTam[hijoder] = null;
-                        graph.insertEdge(parent, null, "", v, v1);
-                        cont++;
-                    }
                     if (hijoizq <= arrTam.length - 1) {
                         Object v2 = graph.insertVertex(parent, null, arrTam[hijoizq].getNombredoc(), 0, 0, 80, 30);
                         arrTam[hijoizq] = null;
                         graph.insertEdge(parent, null, "", v, v2);
-                        cont++;
+                        contNodos++;
+                    }
+                    if (hijoder <= arrTam.length - 1) {
+                        Object v1 = graph.insertVertex(parent, null, arrTam[hijoder].getNombredoc(), 0, 0, 80, 30);
+                        arrTam[hijoder] = null;
+                        graph.insertEdge(parent, null, "", v, v1);
+                        contNodos++;
                     }
                 }
             }
