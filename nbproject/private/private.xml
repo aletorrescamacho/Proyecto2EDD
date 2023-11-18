@@ -2,33 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-<<<<<<< HEAD
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/luiss/Proyecto2EDD/src/Prueba/MinHeap.java</file>
-            <file>file:/C:/Users/luiss/Proyecto2EDD/src/Interfaz/Ventana22.java</file>
-=======
-            <file>file:/C:/Users/Rebeca/Desktop/Proyectos%20EDD/Proyecto2EDD/src/Interfaz/Ventana22.java</file>
-            <file>file:/C:/Users/Rebeca/Desktop/Proyectos%20EDD/Proyecto2EDD/src/Prueba/Monticulobinmin1.java</file>
-            <file>file:/C:/Users/Rebeca/Desktop/Proyectos%20EDD/Proyecto2EDD/src/Main/Main.java</file>
-            <file>file:/C:/Users/Rebeca/Desktop/Proyectos%20EDD/Proyecto2EDD/src/Interfaz/Ventana19.java</file>
-            <file>file:/C:/Users/Rebeca/Desktop/Proyectos%20EDD/Proyecto2EDD/src/Interfaz/Ventana23.java</file>
-            <file>file:/C:/Users/Rebeca/Desktop/Proyectos%20EDD/Proyecto2EDD/src/Prueba/Monticulobinmin.java</file>
-            <file>file:/C:/Users/Rebeca/Desktop/Proyectos%20EDD/Proyecto2EDD/src/Documentos/Documentos.java</file>
-            <file>file:/C:/Users/Rebeca/Desktop/Proyectos%20EDD/Proyecto2EDD/src/Interfaz/Ventana3.java</file>
-            <file>file:/C:/Users/Rebeca/Desktop/Proyectos%20EDD/Proyecto2EDD/src/Interfaz/Ventana21.java</file>
->>>>>>> 1ff2d1659765231cea1372603aa4507deb9cfe2c
+            <file>file:/C:/Users/Rebeca/Desktop/Proyectos%20EDD/Proyecto2EDD/src/Graficos/Operacionesgraficos.java</file>
+            <file>file:/C:/Users/Rebeca/Desktop/Proyectos%20EDD/Proyecto2EDD/src/Prueba/MinHeap1.java</file>
+            <file>file:/C:/Users/Rebeca/Desktop/Proyectos%20EDD/Proyecto2EDD/src/Prueba/PruebaMonticulobinmin.java</file>
+            <file>file:/C:/Users/Rebeca/Desktop/Proyectos%20EDD/Proyecto2EDD/src/Prueba/UbicarNodosArreglo.java</file>
         </group>
-=======
-        <group/>
->>>>>>> dbbc30ba6f706351d7718298aec4266aa3d4888b
-=======
-        <group>
-            <file>file:/C:/Users/luiss/Proyecto2EDD/src/EDD/Nodo.java</file>
-            <file>file:/C:/Users/luiss/Proyecto2EDD/src/Interfaz/Ventana5.java</file>
-            <file>file:/C:/Users/luiss/Proyecto2EDD/src/EDD/Lista.java</file>
-        </group>
->>>>>>> 8f1b2854a07c35bcbd2108f2503d67f9360a3600
     </open-files>
 </project-private>
