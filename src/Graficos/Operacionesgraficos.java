@@ -62,7 +62,7 @@ public class Operacionesgraficos {
                 Node c = graph.getNode(String.valueOf(arrTam[parent].getNombredoc()));
                 Node b = graph.addNode(String.valueOf(arrTam[i].getNombredoc()));
                 b.setAttribute("ui.label", String.valueOf(arrTam[i].getNombredoc()));
-                graph.addEdge(String.valueOf(contadorEdge), a, b);
+                graph.addEdge(String.valueOf(contadorEdge), b, c);
                 contadorEdge++;
 
             

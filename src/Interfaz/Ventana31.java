@@ -3,6 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interfaz;
+import static Interfaz.Ventana27.nombreDocElim;
+import static Interfaz.Ventana27.tipoDocElim;
+import static Interfaz.Ventana27.tamanoDocElim;
+import static Interfaz.Ventana27.prioUsuDocElim;
+import static Interfaz.Ventana27.etDocElim;
+
 
 /**
  *
@@ -18,7 +24,15 @@ public class Ventana31 extends javax.swing.JFrame {
         this.pack();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
+        
+        lbnombreDoc.setText(nombreDocElim);
+        lbtipoDoc.setText(tipoDocElim);
+        lbtamanoDoc.setText(String.valueOf(tamanoDocElim));
+        lbprioridadDoc.setText(prioUsuDocElim);
+        lbsegundosDoc.setText(String.valueOf(etDocElim));
+        
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.

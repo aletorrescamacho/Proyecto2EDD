@@ -20,6 +20,20 @@ public class Ventana27 extends javax.swing.JFrame {
         public static Nodo <Documentos> documentosUsu;
         public static Nodo <Usuarios> aux;
         public static Ventana28 v28;
+        
+        //Variables estaticas para ventana 31 de eliminacion exitosa:
+       //Nombre Doc
+        public static String nombreDocElim;
+        //Tipo Doc
+        public static String tipoDocElim;
+        //Tamano Doc
+        public static int tamanoDocElim;
+        //Prioridad Doc
+        int prioDocElim;
+        public static String prioUsuDocElim;
+        //Et Tiempo Doc Elim
+        public static int etDocElim;
+        
     /**
      * Creates new form Ventana27
      */
@@ -249,9 +263,35 @@ public class Ventana27 extends javax.swing.JFrame {
         //documentosUsu es el nodo de tipo documento que contiene el documento a eliminar de la cola de impresion
         //para eliminarlo, debemos pasar su etiqueta de tiempo a 0, ejecutar el metodo eliminarbin del monticulo binario y poner su encola como falso
         Documentos docToQuit = documentosUsu.getElem();
+        //variable que guarda etiqueta de tiempo antes de setearla a 0.
+        etDocElim = docToQuit.getEtTiempo();
         docToQuit.setEtTiempo(0,0,0);
         Monticulo.eliminarMin();
         docToQuit.setEncola(false);
+        
+        //Variables necesarias para la ventana de eliminado exitosamente:
+        //Nombre doc:
+        nombreDocElim = docToQuit.getNombredoc();
+        //Tipo doc:
+        tipoDocElim = docToQuit.getTipo();
+        //tamano doc:
+        tamanoDocElim = docToQuit.getTamano();
+        //prioridad doc:
+        prioDocElim = docToQuit.getMultPrioUsu();
+        if (prioDocElim == 1 ){
+            prioUsuDocElim = "Alta";
+        }        
+        else{
+            if (prioDocElim == 3){
+                prioUsuDocElim = "Media";
+            }
+            else{
+                prioUsuDocElim = "Baja";
+            }
+        }
+        //etiqueta Doc:
+        //etDocElim (Mas arriba antes de setearle la et tiempo a 0.
+        
         
         Ventana31 v31 = new Ventana31();
         Monticulo.imprimirdatos();
