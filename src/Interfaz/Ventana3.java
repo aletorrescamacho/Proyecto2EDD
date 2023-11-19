@@ -419,17 +419,12 @@ public class Ventana3 extends javax.swing.JFrame {
      */
     private void btsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btsalirActionPerformed
         Ventana4 v4 = new Ventana4();
-        System.out.println(tiempo.getText());
     }//GEN-LAST:event_btsalirActionPerformed
 
     private void btcreardocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btcreardocActionPerformed
-        // TODO add your handling code here:
+
         Ventana5 v5 = new Ventana5();
-//        if (aux1==true){
-//            tamostrarDocs.setText("");
-//            tamostrarUsu.append("Nuevo Documento Creado: \n");
-//            tamostrarUsu.append("Nombre "+nuevoDoc.getNombredoc());
-//        }
+
     }//GEN-LAST:event_btcreardocActionPerformed
     /**
      * Abre la ventana 6, crear usuario
@@ -493,11 +488,10 @@ public class Ventana3 extends javax.swing.JFrame {
     private void btliberarimpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btliberarimpActionPerformed
         // nuevo
         Documentos docaImprimir = Monticulo.getMin();
-//        System.out.println(docaImprimir.getNombredoc());
+
 
         if (!Monticulo.esVacio()) {
             Monticulo.eliminarMin();
-            Monticulo.imprimirdatos();
             Ventana19 v19 = new Ventana19(docaImprimir);
             docaImprimir.setEncola(false);
 

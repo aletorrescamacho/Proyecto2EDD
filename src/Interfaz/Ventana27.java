@@ -295,7 +295,6 @@ public class Ventana27 extends javax.swing.JFrame {
         
         
         Ventana31 v31 = new Ventana31();
-        Monticulo.imprimirdatos();
         this.dispose();
 
     }//GEN-LAST:event_btEliminarDocActionPerformed

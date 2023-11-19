@@ -48,7 +48,6 @@ public class Operaciones {
                 String nombre = info2[0];     
                 String tipo = info2[1].replaceAll(" ","");
                 Usuarios u = new Usuarios(nombre,tipo);
-                //System.out.println(entrada.nextLine());
                 if (!nombre.equalsIgnoreCase("usuario") && !tipo.equalsIgnoreCase("tipo")){
                     listausu.Agregarfinal(u);
                 }
@@ -70,7 +69,6 @@ public class Operaciones {
         }
         Nodo <Usuarios> aux = listausu.getpFirst();
         while (aux != null){
-            System.out.println(aux.getElem().getNombreusu());
             aux = aux.getSig();
             
         }

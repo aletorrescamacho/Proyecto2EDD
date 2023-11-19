@@ -253,15 +253,13 @@ public class Ventana22 extends javax.swing.JFrame {
         //se guarda en una variable la instancia del documento seleccionada por el usuario
         Documentos docToSend = nodoDoc.getElem();
 
-        //borrar:
-        System.out.println(docToSend.getEtTiempo());
+       
 
         //se define correctamente su etiqueta de tiempo
         docToSend.setEtTiempo(etiquetaTiempo, docToSend.getMultPrioUsu(), docToSend.getMultPrioTam());
 
         //Insertar docToSend (el doc a enviar) en el arbol
         Monticulo.insertar(docToSend);
-        Monticulo.imprimirdatos();
 
 //(Despues de mandarlo al arbol, se cambia el atributo EnCola del objeto):
         docToSend.setEncola(true);
@@ -285,14 +283,8 @@ public class Ventana22 extends javax.swing.JFrame {
             Hashtable.getArrHashTable()[posUsuHt] = nodHtUsu;
         }
 
-//        Verificar que se estaba enviando a la hashtable System.out.println(Hashtable.getArrHashTable()[posUsuHt].getElem().getNombreusu());
+//       
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        //Prueba, borrar:
-        System.out.println("\n");
-        System.out.println(docToSend.getEtTiempo());
-        System.out.println(docToSend.isEncola());
-        Monticulo.imprimirdatos();
 
         this.dispose();
 

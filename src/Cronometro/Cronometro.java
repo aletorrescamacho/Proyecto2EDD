@@ -34,7 +34,6 @@ public class Cronometro extends Thread{
                 this.caja.setText(tiempo);
                 Thread.sleep(1000);
             } catch (InterruptedException ex) {
-                System.out.println("ERROR");
             }
         }
     

@@ -42,10 +42,6 @@ public class Ventana29 extends javax.swing.JFrame {
                     }
                 }
             }
-            for (int i = 0; i < Monticulo.getTamMonticulo(); i++) {
-                System.out.println(arrMont[i].getEtTiempo());
-                
-            }
             int contador = 1;
             for (int i = 0; i < Monticulo.getTamMonticulo(); i++) {
                 tamostrarsecuencia.append(contador + ". Nombre Doc: " + arrMont[i].getNombredoc() + " - Etiqueta Tiempo: " + arrMont[i].getEtTiempo() + " \n");

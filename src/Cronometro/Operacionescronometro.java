@@ -51,7 +51,6 @@ public class Operacionescronometro {
         
         int tiempoCorr = ahoraI - inicioI;
         
-        System.out.println(tiempoCorr);
         
     return tiempoCorr;
     }

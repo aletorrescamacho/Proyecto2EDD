@@ -18,7 +18,6 @@ public class Operacioneslistadocs {
         listaDocs.Agregarfinal(nuevoDoc);
         Nodo<Documentos> aux = listaDocs.getpFirst();
         while (aux != null) {
-            System.out.println(aux.getElem().getNombredoc());
             aux = aux.getSig();
         }
     }
@@ -49,7 +48,6 @@ public class Operacioneslistadocs {
         
         Nodo <Documentos> temp = listaDocs.getpFirst();
         while (temp != null){
-            System.out.println(temp.getElem().getNombredoc());
             temp = temp.getSig();
         }    
 

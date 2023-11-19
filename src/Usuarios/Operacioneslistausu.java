@@ -27,9 +27,9 @@ public class Operacioneslistausu {
         listausu.Agregarfinal(Nuevousu);
         Nodo<Usuarios> aux = listausu.getpFirst();
         while (aux != null) {
-            System.out.println(aux.getElem().getNombreusu());
+
             aux = aux.getSig();
-            System.out.println(listausu.getTamano());
+
         }
     }
 
@@ -67,9 +67,7 @@ public class Operacioneslistausu {
         listausu.setTamano(listausu.getTamano() -1);
                 
         while (temp != null){
-            System.out.println(temp.getElem().getNombreusu());
             temp = temp.getSig();
-            System.out.println(listausu.getTamano());
         }    
 
             }
