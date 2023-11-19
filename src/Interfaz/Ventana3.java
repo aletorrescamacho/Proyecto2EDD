@@ -16,6 +16,8 @@ import java.util.Calendar;
 import static Cronometro.Operacionescronometro.convertiraEtiquetat;
 import Documentos.Documentos;
 import EDD.Monticulobinmin;
+import Graficos.Operacionesgraficosmx;
+import javax.swing.JFrame;
 //import static Graficos.Operacionesgraficos.Verarbol;
 
 /**
@@ -524,7 +526,19 @@ public class Ventana3 extends javax.swing.JFrame {
         
         }
         else{
-            //Verarbol();
+            
+            Documentos [] monticuloLleno = new Documentos[Monticulo.getTamMonticulo()] ;
+            
+            for (int i = 0; i < Monticulo.getTamMonticulo(); i++) {
+                monticuloLleno [i] = Monticulo.getArrMonticulo()[i];
+            }
+              
+        Operacionesgraficosmx frame = new Operacionesgraficosmx(monticuloLleno);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setSize(600, 350);
+        frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
+
         
         }
     }//GEN-LAST:event_btvistaarbolActionPerformed

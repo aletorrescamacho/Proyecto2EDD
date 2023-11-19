@@ -266,6 +266,7 @@ public class Ventana27 extends javax.swing.JFrame {
         //variable que guarda etiqueta de tiempo antes de setearla a 0.
         etDocElim = docToQuit.getEtTiempo();
         docToQuit.setEtTiempo(0,0,0);
+        Monticulo.minHeapify(0);
         Monticulo.eliminarMin();
         docToQuit.setEncola(false);
         
