@@ -5,10 +5,13 @@
  */
 package Main;
 import Interfaz.Ventana1;
-//import Cronometro.Cronometro;
 import EDD.Hashtable;
 
-
+/**
+*Clase main, se crea una instancia de la ventana1
+*@author: Luis Soriano y Alessandra Torres
+*@version: 03/11/23
+ */
 
 public class Main {
 

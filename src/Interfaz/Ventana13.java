@@ -4,8 +4,7 @@
  */
 package Interfaz;
 
-import Documentos.Documentos;
-import EDD.Lista;
+
 import EDD.Nodo;
 import static Interfaz.Ventana1.listausu;
 import Usuarios.Usuarios;

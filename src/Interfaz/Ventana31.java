@@ -11,8 +11,9 @@ import static Interfaz.Ventana27.etDocElim;
 
 
 /**
- *
- * @author luiss
+*Ventana documento eliminado exitosamente, se muestra la información del documento que se eliminó
+*@author: Luis Soriano
+*@version: 11/11/23
  */
 public class Ventana31 extends javax.swing.JFrame {
 

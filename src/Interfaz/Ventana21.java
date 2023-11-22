@@ -149,7 +149,11 @@ public class Ventana21 extends javax.swing.JFrame {
     private void cboUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboUsuariosActionPerformed
 
     }//GEN-LAST:event_cboUsuariosActionPerformed
-
+/**
+*Abre ventana 22
+*@author: Luis Soriano
+*@version: 11/11/23
+ */
     private void btSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSiguienteActionPerformed
                     //usuario seleccionado del primer combobox
              userName = (String) cboUsuarios.getSelectedItem();

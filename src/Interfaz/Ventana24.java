@@ -10,8 +10,9 @@ import static Interfaz.Ventana22.docToSend;
 
 
 /**
- *
- * @author Rebeca
+*Ventana de documento enviado a la cola de impresión, contiene la información del documento que se envió
+*@author: Alessandra Torres
+*@version: 11/11/23
  */
 public class Ventana24 extends javax.swing.JFrame {
     

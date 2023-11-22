@@ -5,8 +5,9 @@
 package Interfaz;
 
 /**
- *
- * @author luiss
+*Ventana18, el usuario no tiene documentos creados
+*@author: Luis Soriano
+*@version: 05/11/23
  */
 public class Ventana18 extends javax.swing.JFrame {
 

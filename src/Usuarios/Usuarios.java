@@ -57,9 +57,6 @@ public class Usuarios {
         return Listadocs;
     }
 
-//    public void setListadocs(Lista<Documentos> Listadocs) {
-//        this.Listadocs = Listadocs;
-//    }
     
     
 }

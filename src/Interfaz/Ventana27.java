@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Interfaz;
+
 import static Main.Main.Hashtable;
 import static Interfaz.Ventana26.nomUsuHt;
 import Usuarios.Usuarios;
@@ -11,29 +12,30 @@ import Documentos.Documentos;
 import static Interfaz.Ventana3.Monticulo;
 
 /**
-*Ventana 27 elimina finalmente los documentos de la cola de impresion
-*@author: Luis Soriano
-*@version: 10/11/23
+ * Ventana 27 elimina finalmente los documentos de la cola de impresion
+ *
+ * @author: Luis Soriano
+ * @version: 10/11/23
  */
 public class Ventana27 extends javax.swing.JFrame {
 
-        public static Nodo <Documentos> documentosUsu;
-        public static Nodo <Usuarios> aux;
-        public static Ventana28 v28;
-        
-        //Variables estaticas para ventana 31 de eliminacion exitosa:
-       //Nombre Doc
-        public static String nombreDocElim;
-        //Tipo Doc
-        public static String tipoDocElim;
-        //Tamano Doc
-        public static int tamanoDocElim;
-        //Prioridad Doc
-        int prioDocElim;
-        public static String prioUsuDocElim;
-        //Et Tiempo Doc Elim
-        public static int etDocElim;
-        
+    public static Nodo<Documentos> documentosUsu;
+    public static Nodo<Usuarios> aux;
+    public static Ventana28 v28;
+
+    //Variables estaticas para ventana 31 de eliminacion exitosa:
+    //Nombre Doc
+    public static String nombreDocElim;
+    //Tipo Doc
+    public static String tipoDocElim;
+    //Tamano Doc
+    public static int tamanoDocElim;
+    //Prioridad Doc
+    int prioDocElim;
+    public static String prioUsuDocElim;
+    //Et Tiempo Doc Elim
+    public static int etDocElim;
+
     /**
      * Creates new form Ventana27
      */
@@ -42,85 +44,75 @@ public class Ventana27 extends javax.swing.JFrame {
         this.pack();
         this.setVisible(true);
         this.setLocationRelativeTo(null);
-        
-        
-        
+
         //Buscamos al usuario del combobox de la ventana anterior (Ventana26) en nuestro hashtable
         //aplicamos el algoritmo del hash para conseguir su posicion en el arreglo del hash table, y revisamos si esta vacia o no.
         int posHt = Hashtable.algoritmoHashDefault(nomUsuHt);
-       
+
         //creamos una variable auxiliar que nos indicara si hay un nodo en la posicion del usuario seleccionado del cbo ventana 26. (colisones)
         boolean boolaux = false;
-        
+
         //Verificamos que la posicion este llena.
-        if (Hashtable.getArrHashTable()[posHt] ==null){
+        if (Hashtable.getArrHashTable()[posHt] == null) {
             v28 = new Ventana28();
             this.dispose();
-        }
-        //Si esta llena, debemos revisar que los nodos que hayan en esa posicion sean del usuario seleccionado (colisiones)
-        else{
-             aux = Hashtable.getArrHashTable()[posHt];
+        } //Si esta llena, debemos revisar que los nodos que hayan en esa posicion sean del usuario seleccionado (colisiones)
+        else {
+            aux = Hashtable.getArrHashTable()[posHt];
             //Revisamos que el nodo de la posicion de la HT no esta enlazado con otro, si no lo esta significa que no hay colision
-            if (aux.getSig() == null){
+            if (aux.getSig() == null) {
                 boolaux = true;
-            }
-            //en caso de que si tenga enlace hay colision y por tanto: 
-            else{
-                while (aux.getSig() != null){
-                    if(aux.getElem().getNombreusu().equals(nomUsuHt)){
-                        boolaux= true;
+            } //en caso de que si tenga enlace hay colision y por tanto: 
+            else {
+                while (aux.getSig() != null) {
+                    if (aux.getElem().getNombreusu().equals(nomUsuHt)) {
+                        boolaux = true;
                         break;
                     }
                     aux = aux.getSig();
+                }
             }
-            }
-            
+
             //si se ejecuta este codigo significa que hay un usuario que tiene la misma posicion en la hashtable que tendria el seleccionado en el cbo anterior, pero este no esta en el HT.
-             if (boolaux == false){
-                v28 = new Ventana28 ();
+            if (boolaux == false) {
+                v28 = new Ventana28();
                 this.dispose();
             }
-             
-             //Debemos llenar el combobox con los documentos del usuario que esten en la cola de impresion:
-             // si boolaux es igual a true significa que el usuario indicado si esta en nuestro hashtable y que la variable aux almacena el nodo que contiene la infromacion del usuario seleccionado
+
+            //Debemos llenar el combobox con los documentos del usuario que esten en la cola de impresion:
+            // si boolaux es igual a true significa que el usuario indicado si esta en nuestro hashtable y que la variable aux almacena el nodo que contiene la infromacion del usuario seleccionado
             //creamos una variable que apunte al primer nodo de la lista de documentos del usuario seleccionado
             documentosUsu = aux.getElem().getListadocs().getpFirst();
-            
+
 //debemos validar que dicha lista no este vacia (puede estarlo si envio todos sus documentos a la cola de impresion y se imprimieron todos) y que tenga por lo menos un documento en cola.
-            
             boolean boolaux1 = false;
 
-            if (documentosUsu ==  null){
-                 v28 = new Ventana28 ();
+            if (documentosUsu == null) {
+                v28 = new Ventana28();
                 this.dispose();
-                
+
             }
-                
-           
-            
-            while (documentosUsu != null){
+
+            while (documentosUsu != null) {
                 //solo se agrega el documento si esta en la cola de impresion
                 //aprovehcamos la iteracion sobre la lista de documentos del usuario y en caso de que haya un documento en cola y se agregue al cbo, ya no se ejecuta el bloque de abajo.
-                if (documentosUsu.getElem().isEncola()){
+                if (documentosUsu.getElem().isEncola()) {
                     cboDocsUsuEnCola.addItem(documentosUsu.getElem().getNombredoc());
-                    if (boolaux1 != true){
+                    if (boolaux1 != true) {
                         boolaux1 = true;
                     }
                 }
                 documentosUsu = documentosUsu.getSig();
             }
-            
-            if (boolaux1 == false){
+
+            if (boolaux1 == false) {
                 v28 = new Ventana28();
                 this.dispose();
             }
-        
-        
-        
+
+        }
+
     }
-        
-    }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -248,14 +240,18 @@ public class Ventana27 extends javax.swing.JFrame {
     private void cboDocsUsuEnColaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboDocsUsuEnColaActionPerformed
 
     }//GEN-LAST:event_cboDocsUsuEnColaActionPerformed
-
+/**
+*Se cambia la etiqueta de tiempo del documento a 0, luego se hace eliminar min, se coloca el atributo enCola en false y se abre la ventana 31
+*@author: Luis Soriano
+*@version: 11/11/23
+ */
     private void btEliminarDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEliminarDocActionPerformed
         String docElimCola = (String) cboDocsUsuEnCola.getSelectedItem();
         //documentos usu es una variable de tipo nodo ya definida, se iguala de nuevo al primer nodo de la lista de documentos del usuario seleccionado
         //aux ya queda como el nodo que contiene el usuario seleccionado (cuando el usuario esta en el hashtable)
         documentosUsu = aux.getElem().getListadocs().getpFirst();
-        while (documentosUsu != null){
-            if (documentosUsu.getElem().getNombredoc().equals(docElimCola)){
+        while (documentosUsu != null) {
+            if (documentosUsu.getElem().getNombredoc().equals(docElimCola)) {
                 break;
             }
             documentosUsu = documentosUsu.getSig();
@@ -265,31 +261,27 @@ public class Ventana27 extends javax.swing.JFrame {
         Documentos docToQuit = documentosUsu.getElem();
         //variable que guarda etiqueta de tiempo antes de setearla a 0.
         etDocElim = docToQuit.getEtTiempo();
-        docToQuit.setEtTiempo(0,0,0);
-        
-        
-        
-        while (Monticulo.getMin().getEtTiempo() != 0){
+        docToQuit.setEtTiempo(0, 0, 0);
+
+        while (Monticulo.getMin().getEtTiempo() != 0) {
             boolean p = false;
-        Documentos ins = null;
-            if (Monticulo.getMin().getEtTiempo() != 0){
-            ins = Monticulo.getMin();
-            Monticulo.eliminarMin();
-            p = true;
+            Documentos ins = null;
+            if (Monticulo.getMin().getEtTiempo() != 0) {
+                ins = Monticulo.getMin();
+                Monticulo.eliminarMin();
+                p = true;
+            }
+
+            if (p = true && ins != null) {
+                Monticulo.insertar(ins);
+
+            }
         }
-        
-        
-        if (p = true && ins != null){
-            Monticulo.insertar(ins);
-            
-        }
-        }
-        
-        
+
         Monticulo.eliminarMin();
-        
+
         docToQuit.setEncola(false);
-        
+
         //Variables necesarias para la ventana de eliminado exitosamente:
         //Nombre doc:
         nombreDocElim = docToQuit.getNombredoc();
@@ -299,21 +291,18 @@ public class Ventana27 extends javax.swing.JFrame {
         tamanoDocElim = docToQuit.getTamano();
         //prioridad doc:
         prioDocElim = docToQuit.getMultPrioUsu();
-        if (prioDocElim == 1 ){
+        if (prioDocElim == 1) {
             prioUsuDocElim = "Alta";
-        }        
-        else{
-            if (prioDocElim == 3){
+        } else {
+            if (prioDocElim == 3) {
                 prioUsuDocElim = "Media";
-            }
-            else{
+            } else {
                 prioUsuDocElim = "Baja";
             }
         }
         //etiqueta Doc:
         //etDocElim (Mas arriba antes de setearle la et tiempo a 0.
-        
-        
+
         Ventana31 v31 = new Ventana31();
         this.dispose();
 
@@ -367,6 +356,5 @@ public class Ventana27 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
-
 
 }

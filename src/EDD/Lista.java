@@ -5,7 +5,6 @@
  */
 package EDD;
 
-import Usuarios.Usuarios;
 
 /**
 *Clase lista, contiene los seters y getters, al igual que el metodo agregarfinal
@@ -65,7 +64,11 @@ public class Lista <T> {
     public void setTamano(int aTamano) {
         tamano = aTamano;
     }
-    
+    /**
+*Método agregarfinal, se le pasa por parametro un elemento, se crea un nodo con esa información y se enlaza al final de la lista
+*@author: Alessandra Torres
+*@version: 03/11/23
+ */
      public void Agregarfinal(T elem) {
         Nodo nodoNuevo = new Nodo(elem);
         Nodo pred = null;

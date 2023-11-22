@@ -5,10 +5,7 @@
  */
 package Graficos;
 
-/**
- *
- * @author Rebeca
- */
+
 import Documentos.Documentos;
 import javax.swing.JFrame;
 import com.mxgraph.view.mxGraph;
@@ -21,7 +18,7 @@ public class Operacionesgraficosmx extends JFrame {
     /**
      *
      */
-    private static final long serialVersionUID = -2707712944901661771L;
+
 
     public Operacionesgraficosmx(Documentos[] arrMont) {
         super("Vista Árbol");

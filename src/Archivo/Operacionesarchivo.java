@@ -21,7 +21,7 @@ import Interfaz.Ventana10;
 *@author: Alessandra Torres
 *@version: 03/11/23
  */
-public class Operaciones {
+public class Operacionesarchivo {
 
 
 /**

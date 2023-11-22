@@ -7,7 +7,6 @@ package Interfaz;
 
 import EDD.Nodo;
 import static Interfaz.Ventana1.listausu;
-import static Interfaz.Ventana9.eliminado;
 import Usuarios.Usuarios;
 
 /**

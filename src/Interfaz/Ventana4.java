@@ -128,11 +128,19 @@ public class Ventana4 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+*Confirma salir del programa, cierra todas las ventanas
+*@author: Alessandra Torres
+*@version: 03/11/23
+ */
     private void btsiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btsiActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btsiActionPerformed
-
+/**
+*Bontón no salir, cierra esta ventana pero no las demás
+*@author: Alessandra Torres
+*@version: 03/11/23
+ */
     private void btnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnoActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnoActionPerformed

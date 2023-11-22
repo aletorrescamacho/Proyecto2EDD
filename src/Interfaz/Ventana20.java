@@ -5,8 +5,9 @@
 package Interfaz;
 
 /**
- *
- * @author luiss
+*Ventana de error que no se pueden crear dos documentos de un mismo usuario con igual nombre
+*@author: Luis Soriano
+*@version: 11/11/23
  */
 public class Ventana20 extends javax.swing.JFrame {
 

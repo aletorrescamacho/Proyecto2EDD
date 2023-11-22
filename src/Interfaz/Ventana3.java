@@ -413,22 +413,23 @@ public class Ventana3 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 /**
      * Boton salir, pide confirmación en la ventana 4
-     *
      * @author: Alessandra Torres
      * @version: 03/11/23
      */
     private void btsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btsalirActionPerformed
         Ventana4 v4 = new Ventana4();
     }//GEN-LAST:event_btsalirActionPerformed
-
+    /**
+     * Abre la ventana 5, crear documento
+     * @author: Luis Soriano
+     * @version: 05/11/23
+     */
     private void btcreardocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btcreardocActionPerformed
 
         Ventana5 v5 = new Ventana5();
-
     }//GEN-LAST:event_btcreardocActionPerformed
     /**
      * Abre la ventana 6, crear usuario
-     *
      * @author: Alessandra Torres
      * @version: 05/11/23
      */
@@ -437,22 +438,33 @@ public class Ventana3 extends javax.swing.JFrame {
     }//GEN-LAST:event_btcrearusuActionPerformed
     /**
      * Abre la ventana 8, eliminar usuario
-     *
      * @author: Alessandra Torres
      * @version: 05/11/23
      */
     private void bteliminarusuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bteliminarusuActionPerformed
         Ventana8 v8 = new Ventana8();
     }//GEN-LAST:event_bteliminarusuActionPerformed
-
+   /**
+     * Abre la ventana 13, eliminar doc
+     * @author: Luis Soriano
+     * @version: 05/11/23
+     */
     private void bteliminardocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bteliminardocActionPerformed
         Ventana13 v13 = new Ventana13();
     }//GEN-LAST:event_bteliminardocActionPerformed
-
+   /**
+     * Con el método Mostrarusu de la clase Operacioneslistausu se muestran los usuarios en el textarea
+     * @author: Alessandra Torres
+     * @version: 05/11/23
+     */
     private void btmostrarusuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmostrarusuActionPerformed
         Mostrarusu(listausu, tamostrarUsu);
     }//GEN-LAST:event_btmostrarusuActionPerformed
-
+    /**
+     * Muestra el último documento creado y eliminado en el text area
+     * @author: Luis Soriano
+     * @version: 05/11/23
+     */
     private void mostrarDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarDocActionPerformed
         tamostrarDocs.setText("");
         if (nuevoDoc != null) {
@@ -462,7 +474,7 @@ public class Ventana3 extends javax.swing.JFrame {
             tamostrarDocs.append("Multiplicador Prioridad Usuario: " + nuevoDoc.getMultPrioUsu() + "\n");
             tamostrarDocs.append("Multiplicador Prioridad Tamano: " + nuevoDoc.getMultPrioTam() + "\n");
         } else {
-            tamostrarDocs.append("No se ha creado ningún documento.");
+             tamostrarDocs.append("No se ha creado ningún documento.");
         }
         if (docElim != null) {
             tamostrarDocs.append("\n");
@@ -476,15 +488,22 @@ public class Ventana3 extends javax.swing.JFrame {
             tamostrarDocs.append("No se ha eliminado ningún documento.");
         }
     }//GEN-LAST:event_mostrarDocActionPerformed
-
+    /**
+     * Se toma el tiempo actual y se le aplica la funcion convertiraEtiquetat, luego se instancia la ventana21
+     * @author: Alessandra Torres
+     * @version: 05/11/23
+     */
     private void btenviarColaimprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btenviarColaimprActionPerformed
         etiquetaTiempo = convertiraEtiquetat(tiempo, lbhorainicio);
-
         Ventana21 v21 = new Ventana21();
 
 
     }//GEN-LAST:event_btenviarColaimprActionPerformed
-
+    /**
+     * Si esta vacia la cola de impresión abre la ventana 23, sino elimina el elemento con la etiqueta de tiempo más pequeña del monitculo, abre la ventana 19 y coloca el atributo "enCola" en false 
+     * @author: Alessandra Torres
+     * @version: 05/11/23
+     */
     private void btliberarimpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btliberarimpActionPerformed
         // nuevo
         Documentos docaImprimir = Monticulo.getMin();
@@ -500,20 +519,36 @@ public class Ventana3 extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_btliberarimpActionPerformed
-
+    /**
+     * Abre la ventana 25, contiene la información de como se calcula la etiqueta de tiempo
+     * @author: Alessandra Torres
+     * @version: 05/11/23
+     */
     private void btinfoEtTiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btinfoEtTiempoActionPerformed
         Ventana25 v25 = new Ventana25();
     }//GEN-LAST:event_btinfoEtTiempoActionPerformed
 
-
+    /**
+     * Abre la ventana 29
+     * @author: Alessandra Torres
+     * @version: 05/11/23
+     */
     private void btvistasecuenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btvistasecuenciaActionPerformed
         Ventana29 v29 = new Ventana29();
     }//GEN-LAST:event_btvistasecuenciaActionPerformed
-
+    /**
+     * Abre la ventana 26
+     * @author: Luis Soriano
+     * @version: 05/11/23
+     */
     private void bteliminardoccolaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bteliminardoccolaActionPerformed
         Ventana26 v26 = new Ventana26();
     }//GEN-LAST:event_bteliminardoccolaActionPerformed
-
+    /**
+     * Si el monticulo es vacio, abre la ventana 30, sino, se muestra el monticulo en forma de árbol con ayuda de la libreria JGraphX
+     * @author: Luis Soriano y Alessandra Torres
+     * @version: 18/11/23
+     */
     private void btvistaarbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btvistaarbolActionPerformed
         if (Monticulo.esVacio()){
             Ventana30 v30 = new Ventana30();

@@ -13,14 +13,11 @@ import static Interfaz.Ventana1.listausu;
 import static Interfaz.Ventana21.userName;
 import Usuarios.Usuarios;
 import static Interfaz.Ventana3.etiquetaTiempo;
-import EDD.Monticulobinmin;
 import static Interfaz.Ventana3.Monticulo;
 import static Main.Main.Hashtable;
-import EDD.Hashtable;
 
 /**
  * Enviar docs a cola de impresion
- *
  * @author: Luis Soriano
  * @version: 07/11/23
  */
@@ -239,7 +236,11 @@ public class Ventana22 extends javax.swing.JFrame {
     private void cboDocsUsuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboDocsUsuActionPerformed
 
     }//GEN-LAST:event_cboDocsUsuActionPerformed
-
+/**
+*Envia el documento a la cola de impresión y se realiza el algoritmos de la hashtable, también abre la ventana24
+*@author: Luis Soriano
+*@version: 11/11/23
+ */
     private void btEnviarColaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnviarColaActionPerformed
         //documento seleccionado
         docName = (String) cboDocsUsu.getSelectedItem();

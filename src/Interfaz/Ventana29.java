@@ -5,14 +5,17 @@
  */
 package Interfaz;
 
-/**
- *
- * @author Rebeca
- */
+
 import Documentos.Documentos;
 import static Interfaz.Ventana3.Monticulo;
 import java.awt.Font;
-import java.util.Arrays;
+
+
+/**
+*Coloca la inofrmación de los documentos que se encuentran en la cola de impresión en el textarea
+*@author: Alessandra Torres
+*@version: 11/11/23
+ */
 
 public class Ventana29 extends javax.swing.JFrame {
 

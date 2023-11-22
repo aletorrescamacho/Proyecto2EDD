@@ -6,8 +6,9 @@
 package Interfaz;
 
 /**
- *
- * @author Rebeca
+*Ventana con información de como se calcula la etiqueta de tiempo
+*@author: Alessandra Torres
+*@version: 14/11/23
  */
 public class Ventana25 extends javax.swing.JFrame {
 

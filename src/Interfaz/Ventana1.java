@@ -7,7 +7,7 @@ package Interfaz;
 
 import EDD.Lista;
 import Usuarios.Usuarios;
-import static Archivo.Operaciones.Cargararchivo;
+import static Archivo.Operacionesarchivo.Cargararchivo;
 
 
 /**

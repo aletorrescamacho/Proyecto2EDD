@@ -6,8 +6,9 @@
 package Interfaz;
 
 /**
- *
- * @author Rebeca
+*Ventana información la cola de impresión se encuentra vacia
+*@author: Alessandra Torres
+*@version: 11/11/23
  */
 public class Ventana30 extends javax.swing.JFrame {
 

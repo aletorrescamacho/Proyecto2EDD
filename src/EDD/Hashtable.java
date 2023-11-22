@@ -6,7 +6,7 @@
 package EDD;
 
 import Usuarios.Usuarios;
-import java.util.Arrays;
+
 
  /**
 *Clase Hashtable, con su constructor se crea un arreglo de tamaño indicado en la variable capacidad y de tipo documentos, es nuestra tabla de dispersión

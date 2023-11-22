@@ -5,8 +5,9 @@
 package Interfaz;
 
 /**
- *
- * @author luiss
+*Ventana de información de que el usuario no tiene documentos en la cola de impresión
+*@author: Luis Soriano
+*@version: 11/11/23
  */
 public class Ventana28 extends javax.swing.JFrame {
 

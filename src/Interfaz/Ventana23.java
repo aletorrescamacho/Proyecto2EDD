@@ -6,8 +6,9 @@
 package Interfaz;
 
 /**
- *
- * @author Rebeca
+*Ventana de indormación de cola impresión vacia
+*@author: Alessandra Torres
+*@version: 11/11/23
  */
 public class Ventana23 extends javax.swing.JFrame {
 

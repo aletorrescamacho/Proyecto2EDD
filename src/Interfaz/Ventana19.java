@@ -7,11 +7,11 @@ package Interfaz;
 
 import Documentos.Documentos;
 import static Interfaz.Ventana3.docaImprimir;
-import static Interfaz.Ventana3.Monticulo;
 
 /**
- *
- * @author Rebeca
+*Ventana de impresión exitosa, contiene la información del documento que se imprimió
+*@author: Alessandra Torres
+*@version: 11/11/23
  */
 public class Ventana19 extends javax.swing.JFrame {
     

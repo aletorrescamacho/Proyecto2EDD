@@ -3,7 +3,6 @@ package Documentos;
 
 import EDD.Lista;
 import EDD.Nodo;
-import Usuarios.Usuarios;
 
  /**
 *operaciones realizables sobre lista de documentos. 
